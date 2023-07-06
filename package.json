@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "dotenv": "^16.3.1"
+  },
+  "scripts": {
+    "deploy": "npm run build --prefix yusha && npm start --prefix backend"
   }
 }
