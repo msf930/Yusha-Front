@@ -6,6 +6,7 @@ import {Link} from "react-router-dom";
 
 
 
+
 export default function Blog(){
 
     const [workouts, setWorkouts] = useState(null)
@@ -14,7 +15,8 @@ export default function Blog(){
 
     useEffect(() => {
         const fetchWorkouts = async () => {
-            const response = await fetch('/api/workouts')
+            //const response = await fetch('/api/workouts')
+            const response = await fetch(`/api/workouts`)
             const json = await response.json()
             for(let i = 0; i < 1; i++) {
                 setFeatured(json[i])
