@@ -233,70 +233,70 @@ export default function Home() {
             </section>
             {/* Price section ends */}
             {/* Software Updates section starts */}
-            <section className="Software">
-                <div className="container">
-                    <div className="row align-items-end mb-4">
-                        <div className="col-md-12">
-                            <h2>Our Blog</h2>
-                            <h4>Here are the latest updates to the Yusha software.</h4>
-                        </div>
-                    </div>
-                    <div className="row">
-                        <div className="col-md-6 col-lg-4">
-                            <div className="soft-img-box">
-                                <div className="soft-img">
-                                    <img src="images/ai.jpg" className="img-fluid" alt=""/>
-                                </div>
-                                <h4>Netflix hosts it's first AI animation</h4>
-                                <p>The studio behind the show stated they tried it because of low staff and to save time in between
-                                    frames.
-                                    But what does it mean for the animation industry if studios that can't afford their employees slowly
-                                    phase
-                                    them out? Yusha hopes to be the alternative letting creators to produce their own works instead.</p>
-                                <div className="read">
-                                    <a href="https://www.vice.com/en/article/bvmqkv/netflix-anime-dog-and-the-boy-ai-generated-art">Learn
-                                        More </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-6 col-lg-4">
-                            <div className="soft-img-box">
-                                <div className="soft-img">
-                                    <img src="images/ai2.jpeg" className="img-fluid" alt=""/>
-                                </div>
-                                <h4>Motion capture + Animation</h4>
-                                <p>A youtube channel made their own animation by applying an AI filter over their video. While one of
-                                    many,
-                                    it's a get example of how the animation space is changing a lot and the barrier of entry is slowly
-                                    opening
-                                    up! With these softwares we will get to see new people joining the industry and hopefully some of them
-                                    will get into traditional animation!</p>
-                                <div className="read">
-                                    <a href="https://www.youtube.com/watch?v=_9LX9HSQkWo&t=2s&ab_channel=CorridorCrew">Learn More </a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-md-6 col-lg-4">
-                            <div className="soft-img-box">
-                                <div className="soft-img">
-                                    <img src="images/ai3.jpeg" className="img-fluid" alt=""/>
-                                </div>
-                                <h4>Working in animation is brutal</h4>
-                                <p>In Hacker News, details that most animators struggle in the industry leading to extremely high
-                                    turnover.
-                                    Which is sad to see, people leaving an industry they were passionate about orignally. With Yusha we
-                                    want
-                                    to keep people in the industry by letting people have options to producing content faster and
-                                    hopefully
-                                    for their own audience.</p>
-                                <div className="read">
-                                    <a href="https://news.ycombinator.com/item?id=28111718">Learn More </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            {/*<section className="Software">*/}
+            {/*    <div className="container">*/}
+            {/*        <div className="row align-items-end mb-4">*/}
+            {/*            <div className="col-md-12">*/}
+            {/*                <h2>Our Blog</h2>*/}
+            {/*                <h4>Here are the latest updates to the Yusha software.</h4>*/}
+            {/*            </div>*/}
+            {/*        </div>*/}
+            {/*        <div className="row">*/}
+            {/*            <div className="col-md-6 col-lg-4">*/}
+            {/*                <div className="soft-img-box">*/}
+            {/*                    <div className="soft-img">*/}
+            {/*                        <img src="images/ai.jpg" className="img-fluid" alt=""/>*/}
+            {/*                    </div>*/}
+            {/*                    <h4>Netflix hosts it's first AI animation</h4>*/}
+            {/*                    <p>The studio behind the show stated they tried it because of low staff and to save time in between*/}
+            {/*                        frames.*/}
+            {/*                        But what does it mean for the animation industry if studios that can't afford their employees slowly*/}
+            {/*                        phase*/}
+            {/*                        them out? Yusha hopes to be the alternative letting creators to produce their own works instead.</p>*/}
+            {/*                    <div className="read">*/}
+            {/*                        <a href="https://www.vice.com/en/article/bvmqkv/netflix-anime-dog-and-the-boy-ai-generated-art">Learn*/}
+            {/*                            More </a>*/}
+            {/*                    </div>*/}
+            {/*                </div>*/}
+            {/*            </div>*/}
+            {/*            <div className="col-md-6 col-lg-4">*/}
+            {/*                <div className="soft-img-box">*/}
+            {/*                    <div className="soft-img">*/}
+            {/*                        <img src="images/ai2.jpeg" className="img-fluid" alt=""/>*/}
+            {/*                    </div>*/}
+            {/*                    <h4>Motion capture + Animation</h4>*/}
+            {/*                    <p>A youtube channel made their own animation by applying an AI filter over their video. While one of*/}
+            {/*                        many,*/}
+            {/*                        it's a get example of how the animation space is changing a lot and the barrier of entry is slowly*/}
+            {/*                        opening*/}
+            {/*                        up! With these softwares we will get to see new people joining the industry and hopefully some of them*/}
+            {/*                        will get into traditional animation!</p>*/}
+            {/*                    <div className="read">*/}
+            {/*                        <a href="https://www.youtube.com/watch?v=_9LX9HSQkWo&t=2s&ab_channel=CorridorCrew">Learn More </a>*/}
+            {/*                    </div>*/}
+            {/*                </div>*/}
+            {/*            </div>*/}
+            {/*            <div className="col-md-6 col-lg-4">*/}
+            {/*                <div className="soft-img-box">*/}
+            {/*                    <div className="soft-img">*/}
+            {/*                        <img src="images/ai3.jpeg" className="img-fluid" alt=""/>*/}
+            {/*                    </div>*/}
+            {/*                    <h4>Working in animation is brutal</h4>*/}
+            {/*                    <p>In Hacker News, details that most animators struggle in the industry leading to extremely high*/}
+            {/*                        turnover.*/}
+            {/*                        Which is sad to see, people leaving an industry they were passionate about orignally. With Yusha we*/}
+            {/*                        want*/}
+            {/*                        to keep people in the industry by letting people have options to producing content faster and*/}
+            {/*                        hopefully*/}
+            {/*                        for their own audience.</p>*/}
+            {/*                    <div className="read">*/}
+            {/*                        <a href="https://news.ycombinator.com/item?id=28111718">Learn More </a>*/}
+            {/*                    </div>*/}
+            {/*                </div>*/}
+            {/*            </div>*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
+            {/*</section>*/}
             {/* Software Updates section ends */}
             {/* connect with section starts */}
             {/*<section className="connect-us">*/}

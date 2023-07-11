@@ -27,17 +27,19 @@ export default function Blog(){
                     arr.push(json[j])
                 }
                 setWorkouts(arr)
-
             }
-
-
         }
-
         fetchWorkouts()
     }, [])
     if(!workouts) return"";
 
-    const featTagArr = featured.tags.split("*");
+    const featTagArr = []
+    const splitTagArr = featured.tags.split("*");
+    if (splitTagArr[0] != ""){
+        splitTagArr.forEach((featTag) => {
+            featTagArr.push(featTag);
+        })
+    }
 
 
     return(

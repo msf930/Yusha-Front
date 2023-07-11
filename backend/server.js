@@ -5,6 +5,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const workoutRoutes = require('./routes/workouts');
 
+
 const app = express();
 
 app.use(express.json());
@@ -20,6 +21,7 @@ app.use('/api/workouts', workoutRoutes);
 app.get('/*', (_req, res) => {
   res.sendFile(path.join(path.join(__dirname, 'public', 'index.html')));
 });
+
 
 mongoose
   .connect(process.env.MONGO_URI)

@@ -101,98 +101,175 @@ export default function About() {
             <div className="row">
                 <div className="col-md-6 col-lg-4 m-10">
                     <div className="team-box">
-                        <div className="team-img m-auto">
-                            <img src="images/Shamal.png" className="img-fluid" alt=""/>
+                        <div className="image-container m-auto">
+                            <img src="images/Shamal.png" className="team-img img-fluid" alt=""/>
+                            <img src="images/Shamal_Hover.png" className="imgTop team-img img-fluid" alt=""/>
                         </div>
-                        <h3>
-                            Shamal D. | <span>He/Him</span>
-                        </h3>
-                        <h5>Founder/Lead Developer</h5>
-                        <p>
-                            Born and raised in the Bay Area, he majored in Applied Physics at the University of Washington, Seattle.
-                            He currently works as full-stack developer.
-                        </p>
-                        <p>
-                            Fun Fact: Loves competitive robotics!
-                        </p>
+                        <div className="team-text-box">
+                            <h3>
+                                Shamal D. | <span>He/Him</span>
+                            </h3>
+                            <h5>Founder/Lead Developer</h5>
+                            <p>
+                                Animations are life. Life is an animation.
+                            </p>
+                            <a href="https://www.linkedin.com/in/shamaldias/">
+                                <img src="images/icon_linkedin.png" className="icon img-fluid" alt=""/>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div className="col-md-6 col-lg-4 m-10">
                     <div className="team-box">
-                        <div className="team-img m-auto">
-                            <img src="images/Yusha-Headshot.png" className="img-fluid" alt=""/>
+                        <div className="image-container m-auto">
+                            <img src="images/Yusha_Dab.png" className="imgBtm img-fluid team-img" alt=""/>
+                            <img src="images/Yusha_Hover.png" className="imgTop team-img img-fluid" alt=""/>
                         </div>
-                        <h3>
-                            Yusha | <span>Yu/Sha</span>
-                        </h3>
-                        <h5>Master Animator</h5>
-                        <p>
-                            Yusha plans to inspire animators to get back to their roots of hand style drawing to share their stories.
-                            Yusha will open the doors to the wonderful world of animation for many to enjoy!
-                        </p>
+                        <div className="team-text-box">
+                            <h3>
+                                Yusha | <span>Yu/Sha</span>
+                            </h3>
+                            <h5>Master Animator</h5>
+                            <p>
+                                Let's make the world fun by creating more animations for everyone.
+                            </p>
+                            <div>
+                                <a href="https://discord.gg/vEUsd6WJRj">
+                                    <img src="images/icon_discord.png" className="icon img-fluid" alt=""/>
+                                </a>
+                                <a href="https://www.linkedin.com/company/yusha-ai/about/">
+                                    <img src="images/icon_linkedin.png" className="icon img-fluid" alt=""/>
+                                </a>
+                                <a href="https://www.instagram.com/yusha.animation/">
+                                    <img src="images/icon_instagram.png" className="icon img-fluid" alt=""/>
+                                </a>
+                                <a href="https://www.tiktok.com/@animate_with_yusha?lang=en">
+                                    <img src="images/icon_tiktok.png" className="icon img-fluid" alt=""/>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div className="col-md-6 col-lg-4 m-10">
                     <div className="team-box">
-                        <div className="team-img m-auto">
-                            <img src="images/floren.png" className="img-fluid" alt=""/>
+                        <div className="image-container m-auto">
+                            <img src="images/Ryan_M.png" className="imgBtm img-fluid team-img" alt=""/>
+                            <img src="images/Ryan_Hover.png" className="imgTop team-img img-fluid" alt=""/>
                         </div>
-                        <h3>
-                            Floren L. | | <span>She/Her</span>
-                        </h3>
-                        <h5>Lead UX Developer</h5>
-                        <p>
-                            As a creative, nothing beats being able to turn your ideas into reality. I find myself always having
-                            something to learn/research about in animation, all while enjoying watching creators bring life to their
-                            characters.
-                        </p>
+                        <div className="team-text-box">
+                            <h3>
+                                Ryan M. | <span>He/Him</span>
+                            </h3>
+                            <h5>CMO</h5>
+                            <p>
+                                So excited for the world to experience what we’re making!
+                            </p>
+                            <a href="https://www.linkedin.com/in/rmaule">
+                                <img src="images/icon_linkedin.png" className="icon img-fluid" alt=""/>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div className="col-md-6 col-lg-4 m-10">
+                    <div className="team-box">
+                        <div className="image-container m-auto">
+                            <img src="images/floren.png" className="imgBtm img-fluid team-img" alt=""/>
+                            <img src="images/Floren_Hover.png" className="imgTop team-img img-fluid" alt=""/>
+                        </div>
+                        <div className="team-text-box">
+                            <h3>
+                                Floren L. | | <span>She/Her</span>
+                            </h3>
+                            <h5>Lead UX Developer</h5>
+                            <p>
+                                As a creative, nothing beats being able to turn your ideas into reality.
+                            </p>
+                            <a href="https://www.linkedin.com/in/florenlee880">
+                                <img src="images/icon_linkedin.png" className="icon img-fluid" alt=""/>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
                 <div className="col-md-6 col-lg-4 m-10">
                     <div className="team-box">
-                        <div className="team-img m-auto">
-                            <img src="images/joseph.png" className="img-fluid" alt=""/>
+                        <div className="image-container m-auto">
+                            <img src="images/joseph.png" className="imgBtm img-fluid team-img" alt=""/>
+                            <img src="images/Joseph_Hover.png" className="imgTop team-img img-fluid" alt=""/>
                         </div>
-                        <h3>
-                            Joseph B. | <span>He/Him</span>
-                        </h3>
-                        <h5>Lead Social Media Manager</h5>
-                        <p>
-                            He was born and raised in CA and had previous experience moderating his own Discord server. Did you know
-                            that a group of weasels is called “confusion.”
-                        </p>
+                        <div className="team-text-box">
+                            <h3>
+                                Joseph B. | <span>He/Him</span>
+                            </h3>
+                            <h5>Community Manager</h5>
+                            <p>
+                                Animations are love. A passionate medium to evoke one's story.
+                            </p>
+                            <a href="https://www.linkedin.com/in/joseph-baba-b41b31132/">
+                                <img src="images/icon_linkedin.png" className="icon img-fluid" alt=""/>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div className="col-md-6 col-lg-4 m-10">
                     <div className="team-box">
-                        <div className="team-img m-auto">
-                            <img src="images/Marvin.png" className="img-fluid" alt=""/>
+                        <div className="image-container m-auto">
+                            <img src="images/johnnie.png" className="imgBtm img-fluid team-img" alt=""/>
+                            <img src="images/Johnnie_Hover.png" className="imgTop team-img img-fluid" alt=""/>
                         </div>
-                        <h3>
-                            Marvin A. | <span>He/Him</span>
-                        </h3>
-                        <h5>Lead Full Stack Developer</h5>
-                        <p>
-                            He was born in SF and is a jack of all trades. From 3D Blender animation, 3D modeling, and rigging to
-                            Godot game development, graphic, and brand design. He loves going out to eat burgers and fries.
-                        </p>
+                        <div className="team-text-box">
+                            <h3>
+                                Johnnie B. | <span>He/Him</span>
+                            </h3>
+                            <h5>Content Marketing</h5>
+                            <p>
+                                If you are what you animate then I only want to animate the good stuff.
+                            </p>
+                            <a href="https://www.linkedin.com/in/johnnie-baba-1b6b45132/">
+                                <img src="images/icon_linkedin.png" className="icon img-fluid" alt=""/>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="col-md-6 col-lg-4 m-10">
+                    <div className="team-box">
+                        <div className="image-container m-auto">
+                            <img src="images/Haley_Default_Img.png" className="imgBtm img-fluid team-img" alt=""/>
+                            <img src="images/Haley_Hover_Img.png" className="imgTop team-img img-fluid" alt=""/>
+                        </div>
+                        <div className="team-text-box">
+                            <h3>
+                                Haley W. | <span>She/Her</span>
+                            </h3>
+                            <h5>Digital Marketing Strategist</h5>
+                            <p>
+                                So passionate about animations that I help market Yusha to you!
+                            </p>
+                            <a href="https://www.linkedin.com/in/haleywhittington/">
+                                <img src="images/icon_linkedin.png" className="icon img-fluid" alt=""/>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div className="col-md-6 col-lg-4 m-10">
                     <div className="team-box">
-                        <div className="team-img m-auto">
-                            <img src="images/johnnie.png" className="img-fluid" alt=""/>
+                        <div className="image-container m-auto">
+                            <img src="images/Matt_Default_Img.png" className="imgBtm img-fluid team-img" alt=""/>
+                            <img src="images/Matt_Hover_Img.png" className="imgTop team-img img-fluid" alt=""/>
                         </div>
-                        <h3>
-                            Johnnie B. | <span>He/Him</span>
-                        </h3>
-                        <h5>Developer</h5>
-                        <p>
-                            He was born and raised in the Bay Area. He transitioned from Aerospace Engineering to Computer Science at
-                            Cal Poly SLO. He enjoys making content, working out, Anime and food. Fun fact: his brother likes weasels
-                            and a group of crows is called “murder.”
-                        </p>
+                        <div className="team-text-box">
+                            <h3>
+                                Matt F. | <span>He/Him</span>
+                            </h3>
+                            <h5>Fullstack Web Developer</h5>
+                            <p>
+                               Animation is like a box of chocolates.  It's sweet.
+                            </p>
+                            <a href="https://www.linkedin.com/in/matt-folsom/">
+                                <img src="images/icon_linkedin.png" className="icon img-fluid" alt=""/>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

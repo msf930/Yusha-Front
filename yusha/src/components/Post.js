@@ -2,10 +2,16 @@ import {Link} from "react-router-dom";
 
 
 export default function Post({ workout }){
-    const tagArr = workout.tags.split("*");
+    const tagArr = [];
+    const splitTagArr = workout.tags.split("*");
+    if (splitTagArr[0] != ""){
+        splitTagArr.forEach((tag) =>{
+            tagArr.push(tag);
+        })
+    }
     return(
 
-            <div className="col-md-6 col-lg-3 my-3">
+            <div className="col-md-6 col-lg-3 col-sm-12 my-1">
                 <div>
                     <div>
                         <Link to={`/blog/${workout._id}`}>

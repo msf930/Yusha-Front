@@ -25,7 +25,14 @@ export default function PostPage() {
     if(!workoutInfo) return"";
 
     const stringArr = workoutInfo.body.split("*");
-    const tagArr = workoutInfo.tags.split("*");
+
+    const postTagArr = [];
+    const postSplitTagArr = workoutInfo.tags.split("*");
+    if (postSplitTagArr[0] != ""){
+        postSplitTagArr.forEach((postTag) => {
+            postTagArr.push(postTag);
+        })
+    }
 
     return(
         <div>
@@ -35,7 +42,7 @@ export default function PostPage() {
                         <a href="/blog" className="blog-page-btn">&lt; Blogs</a>
                         <img src={workoutInfo.image} alt={workoutInfo.title}/>
                         <div className="tag-group">
-                            {tagArr && tagArr.map(tag => (
+                            {postTagArr && postTagArr.map(tag => (
                                 <label className="blog-page-tag">{tag}</label>
                             ))}
                         </div>
