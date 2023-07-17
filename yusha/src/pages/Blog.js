@@ -17,7 +17,17 @@ export default function Blog(){
         const fetchWorkouts = async () => {
             //const response = await fetch('/api/workouts')
             const response = await fetch(`/api/workouts`)
-            const json = await response.json()
+            const jsonRaw = await response.json()
+            const json = [];
+            const now = Date.now();
+            for(let k = 0; k < jsonRaw.length; k++) {
+                const postTime = new Date(jsonRaw[k].date);
+                if ( postTime.getTime() < now){
+                    json.push(jsonRaw[k])
+                }
+            }
+            console.log("length " + json.length);
+
             for(let i = 0; i < 1; i++) {
                 setFeatured(json[i])
             }
@@ -59,15 +69,15 @@ export default function Blog(){
                 <div id="innerHero">
                     <div className="container">
                         <div className="row  align-items-center">
-                            <div className="col-lg-6 order-lg-2 ">
-                                <div className="inner-hero-img mb-lg-0 mb-4">
+                            <div className="col-lg-6  ">
+                                <div className="inner-hero-img mb-lg-0 mb-4 order-lg-2 ">
                                     <Link to={`/blog/${featured._id}`}>
                                     <img src={featured.image} className="img-fluid" alt=""/>
                                     </Link>
                                 </div>
                             </div>
-                            <div className="col-lg-6 order-lg-1 ">
-                                <div className="inner-hero-content">
+                            <div className="col-lg-6  ">
+                                <div className="inner-hero-content order-lg-1">
                                     {featTagArr && featTagArr.map(featTag => (
                                         <label className="blog-tag">{featTag}</label>
                                     ))}

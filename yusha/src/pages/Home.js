@@ -101,7 +101,7 @@ export default function Home() {
                         </div>
                         <div className="col-lg-6 order-lg-2 order-1">
                             <div className="hand-drawn-lef ps-lg-5 ps-0 mb-md-4">
-                                <img src="images/animation-tool-min.gif" className="img-fluid w-100" alt=""/>
+                                <img src="images/animation-tool-min.gif" className="img-fluid w-100 cs-shadow" alt=""/>
                             </div>
                         </div>
                     </div>
@@ -165,7 +165,7 @@ export default function Home() {
                             </div>
                         </div>
                         <div className="col-lg-6 order-lg-2 order-1">
-                            <div className="creativity-right f-play-video mb-4 mb-lg-0">
+                            <div className="creativity-right f-play-video my-4 mb-lg-0">
                                 <img src="images/white_yusha.png" className="play-button img-fluid" data-bs-toggle="modal"
                                      data-bs-target="#exampleModal" alt=""/>
                                 {/* Modal */}

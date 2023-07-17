@@ -131,7 +131,7 @@ export default function About() {
                             </h3>
                             <h5>Master Animator</h5>
                             <p>
-                                Let's make the world fun by creating more animations for everyone.
+                                Making animation easier since 2023. Let's animate together!
                             </p>
                             <div>
                                 <a href="https://discord.gg/vEUsd6WJRj">

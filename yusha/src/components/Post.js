@@ -11,7 +11,7 @@ export default function Post({ workout }){
     }
     return(
 
-            <div className="col-md-6 col-lg-3 col-sm-12 my-1">
+            <div className="col-md-6 col-lg-3 col-sm-12 my-1 py-3">
                 <div>
                     <div>
                         <Link to={`/blog/${workout._id}`}>
@@ -22,7 +22,7 @@ export default function Post({ workout }){
                         <label className="blog-tag">{tag}</label>
                     ))}
                     <Link to={`/blog/${workout._id}`}>
-                        <h4 className="text-black">{workout.title}</h4>
+                        <h5 className="text-black">{workout.title}</h5>
                     </Link>
                 </div>
             </div>

@@ -215,7 +215,8 @@ position: relative;
     padding: 50px 0;
 }
 .inner-hero-content {
-    max-width: 500px;
+    max-width: 800px;
+    padding: 0rem 3rem;
 }
 /* banner end */
 /* all-creator starts  */
@@ -571,6 +572,13 @@ position: relative;
     justify-content: center;
     align-items: center;
 }
+@media (max-width: 576px) {
+    .team-box{
+        padding: 0px;
+        min-height: 157px
+
+    }
+}
 .team-box:hover{
     box-shadow: 4px 4px 4px #EE6611;
 }
@@ -598,7 +606,7 @@ position: relative;
     color: var(--cs-titleblack);
     font-weight: 400;
     font-size: 16px;
-    margin: 5px;
+    /*margin: 5px;*/
 }
 .team-text-box{
     margin-left: 20px;
@@ -813,7 +821,7 @@ color: #7B7B7B;
     padding-bottom: 40px;
 }
 .blog-featured-title{
-    font-size: 2.5em;
+    font-size: 2em;
     font-weight: bold;
     line-height: 45px;
     text-decoration: none;
@@ -830,7 +838,7 @@ color: #7B7B7B;
     color:white;
     background-color: #EE6611;
     padding: 2px 6px;
-    margin: 2px 7px;
+    margin: 12px 7px 12px 0px;
     border-radius: 10px;
 }
 .blog-image{
