@@ -39,7 +39,10 @@ export default function PostPage() {
             <section className="blog-page-container" >
                 <div className="container">
                     <div className="row">
-                        <a href="/blog" className="blog-page-btn">&lt; Blogs</a>
+                        <div className="homeBlogBtnContainer">
+                            <a href="/" className="blog-page-btn">&lt; Home</a>
+                            <a href="/blog" className="blog-page-btn">Blog &gt;</a>
+                        </div>
                         <img src={workoutInfo.image} alt={workoutInfo.title}/>
                         <div className="tag-group">
                             {postTagArr && postTagArr.map(tag => (

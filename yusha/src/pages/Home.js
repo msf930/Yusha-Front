@@ -1,8 +1,52 @@
 import { HashLink } from 'react-router-hash-link';
 import Footer from "../components/Footer";
 import NewsletterForm from "../components/NewsletterForm";
+import {useEffect, useState} from "react";
+import {Link} from "react-router-dom";
+import BrevoForm from "../components/BrevoForm.js";
 
 export default function Home() {
+    const [workouts, setWorkouts] = useState(null)
+    const [featured, setFeatured] = useState([])
+
+
+    useEffect(() => {
+        const fetchWorkouts = async () => {
+            //const response = await fetch('/api/workouts')
+            const response = await fetch(`/api/workouts`)
+            const jsonRaw = await response.json()
+            const json = [];
+            const now = Date.now();
+            for(let k = 0; k < jsonRaw.length; k++) {
+                const postTime = new Date(jsonRaw[k].date);
+                if ( postTime.getTime() < now){
+                    json.push(jsonRaw[k])
+                }
+            }
+            console.log("length " + json.length);
+
+            for(let i = 0; i < 1; i++) {
+                setFeatured(json[i])
+            }
+            if (response.ok) {
+                const arr = [];
+                for(let j = 1; j < json.length; j++) {
+                    arr.push(json[j])
+                }
+                setWorkouts(arr)
+            }
+        }
+        fetchWorkouts()
+    }, [])
+    if(!workouts) return"";
+
+    const featTagArr = []
+    const splitTagArr = featured.tags.split("*");
+    if (splitTagArr[0] != ""){
+        splitTagArr.forEach((featTag) => {
+            featTagArr.push(featTag);
+        })
+    }
 
     return(
         <div>
@@ -57,7 +101,7 @@ export default function Home() {
                     <div className="row align-items-center pt-5">
                         <div className="col-lg-6">
                             <div className="hand-drawn-left pe-lg-5 pe-0 mb-md-4">
-                                <img src="images/helping-hands.jpeg" className="img-fluid cs-shadow" alt=""/>
+                                <img src="images/helping-hands.jpg" className="img-fluid cs-shadow rounded-4" alt=""/>
                             </div>
                         </div>
                         <div className="col-lg-6">
@@ -110,7 +154,7 @@ export default function Home() {
                     <div className="row align-items-center py-5">
                         <div className="col-lg-6">
                             <div className="hand-drawn-left pe-md-5 pe-0 mb-md-4">
-                                <img src="images/growth.jpeg" className="img-fluid cs-shadow" alt=""/>
+                                <img src="images/growth.png" className="img-fluid cs-shadow" alt=""/>
                             </div>
                         </div>
                         <div className="col-lg-6">
@@ -231,6 +275,40 @@ export default function Home() {
                     </div>
                 </div>
             </section>
+            <section className="home-blog-featured" id="homeBlog">
+                <div id="innerHero">
+                    <div className="container">
+                        <div className="home-blog-section-title">
+                            <h2 className="blog-featured-title">Yusha Blog</h2>
+                            <h4 className="blog-featured-summary">The latest news and stories in the animation industry!</h4>
+                        </div>
+                        <div className="row  align-items-center">
+                            <div className="col-lg-6  ">
+                                <div className="inner-hero-img mb-lg-0 mb-4 order-lg-2 ">
+                                    <Link to={`/homePost/${featured._id}`}>
+                                        <img src={featured.image} className="img-fluid" alt=""/>
+                                    </Link>
+                                </div>
+                            </div>
+                            <div className="col-lg-6  ">
+                                <div className="inner-hero-content order-lg-1">
+                                    {featTagArr && featTagArr.map(featTag => (
+                                        <label className="blog-tag">{featTag}</label>
+                                    ))}
+                                    <Link to={`/homePost/${featured._id}`}>
+                                        <div className="blog-featured-title">{featured.title}</div>
+                                    </Link>
+                                    <div className="blog-featured-summary">{featured.summary}</div>
+                                    <Link to={`/homePost/${featured._id}`}>
+                                        <img src="images/readMore.png" className="py-3" />
+                                    </Link>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
             {/* Price section ends */}
             {/* Software Updates section starts */}
             {/*<section className="Software">*/}
@@ -326,7 +404,10 @@ export default function Home() {
 
             {/*    </div>*/}
             {/*</section>*/}
-                <NewsletterForm />
+
+
+
+                <BrevoForm />
             <Footer />
         </div>
     );

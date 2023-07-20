@@ -10,6 +10,7 @@ import Download from "./pages/Download";
 import Support from "./pages/Support";
 import Blog from "./pages/Blog";
 import PostPage from "./pages/PostPage";
+import HomePostPage from "./pages/HomePostPage";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
               <Route path="blog" element={<Blog />} />
               <Route path="support" element={<Support />} />
               <Route path="blog/:id" element={<PostPage />} />
+              <Route path="homePost/:id" element={<HomePostPage />} />
           </Route>
           <Route path="/" element={<Footer />}>
               <Route path="about" element={<About />} />

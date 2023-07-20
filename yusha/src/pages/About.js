@@ -1,5 +1,6 @@
 import Footer from "../components/Footer";
 import NewsletterForm from "../components/NewsletterForm";
+import BrevoForm from "../components/BrevoForm";
 
 export default function About() {
     return(
@@ -310,7 +311,7 @@ export default function About() {
 
     {/*    </div>*/}
     {/*</section>*/}
-    <NewsletterForm />
+    <BrevoForm />
     <Footer />
     </div>
 

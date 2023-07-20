@@ -65,6 +65,9 @@ export default function Footer(){
                                 <li>
                                     <HashLink to="/about#top">About</HashLink>
                                 </li>
+                                <li>
+                                    <HashLink to="/blog#top">Blog</HashLink>
+                                </li>
                             </ul>
                         </div>
                     </div>

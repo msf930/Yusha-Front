@@ -216,7 +216,7 @@ position: relative;
 }
 .inner-hero-content {
     max-width: 800px;
-    padding: 0rem 3rem;
+    padding: 0rem 2rem;
 }
 /* banner end */
 /* all-creator starts  */
@@ -364,7 +364,24 @@ position: relative;
 .price-btn a{
     width: 100%;
 }
+.home-blog-section-title{
+    font-size: 1.3em;
+    font-weight: bold;
+    line-height: 45px;
+    text-decoration: none;
+    color: #212121;
+    padding-top: 10px;
+    padding-bottom: 32px;
+}
 /* Price section ends */
+.home-blog-featured{
+    background:white;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
 /* Software Updates section starts */
 .Software{
     padding: 80px 0;
@@ -841,12 +858,18 @@ color: #7B7B7B;
     margin: 12px 7px 12px 0px;
     border-radius: 10px;
 }
+.postImageContainer{
+    min-height: 172px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .blog-image{
-    box-shadow:0px 0px 0px #1679D4;
+    box-shadow:0px 0px  #1679D4;
     transition: box-shadow 0.2s ease-in-out;
 }
 .blog-image:hover{
-    box-shadow:10px 5px 5px #1679D4;
+    box-shadow:5px 5px 5px #1679D4;
     transition: box-shadow 0.2s ease-in-out;
 }
 .connect-us-blog{
@@ -885,4 +908,12 @@ color: #7B7B7B;
 .blog-page-info{
     display: flex;
     padding: 15px 0px;
+}
+/*Blog page ends here*/
+/*Home blog page starts here*/
+
+.homeBlogBtnContainer{
+    display: flex;
+    justify-content: space-between;
+
 }

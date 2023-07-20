@@ -3,6 +3,8 @@ import NewsletterForm from "../components/NewsletterForm";
 import Post from "../components/Post";
 import {useEffect,useState} from "react";
 import {Link} from "react-router-dom";
+import BrevoForm from "../components/BrevoForm";
+
 
 
 
@@ -58,7 +60,6 @@ export default function Blog(){
                 <div className="container ">
                     <div className="row banner-row justify-content-center align-items-center">
                         <div className="col-lg-12 text-center about-banner-con  banner_content">
-
                             <h1>Yusha’s Blog</h1>
                             <h4>The latest updates to the Yusha software and news from the industry</h4>
                         </div>
@@ -82,9 +83,12 @@ export default function Blog(){
                                         <label className="blog-tag">{featTag}</label>
                                     ))}
                                     <Link to={`/blog/${featured._id}`}>
-                                    <div className="blog-featured-title">{featured.title}</div>
+                                        <div className="blog-featured-title">{featured.title}</div>
                                     </Link>
                                     <div className="blog-featured-summary">{featured.summary}</div>
+                                    <Link to={`/blog/${featured._id}`}>
+                                            <img src="images/readMore.png" className="py-3" />
+                                    </Link>
                                 </div>
                             </div>
 
@@ -129,7 +133,7 @@ export default function Blog(){
                 </div>
             </section>
 
-            <NewsletterForm />
+            <BrevoForm />
             <Footer />
 
         </div>

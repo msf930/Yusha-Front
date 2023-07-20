@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Footer from "../components/Footer";
 import NewsletterForm from "../components/NewsletterForm";
 import { PayPalScriptProvider, PayPalButtons } from "@paypal/react-paypal-js";
+import BrevoForm from "../components/BrevoForm";
 
 export default function Download(){
     const [checkout, setCheckOut] = useState(false);
@@ -190,7 +191,7 @@ export default function Download(){
         {/*</section>*/}
         {/* connect with section ends */}
         {/* footer start here */}
-        <NewsletterForm />
+        <BrevoForm />
         <Footer />
         {/* footer end here */}
 

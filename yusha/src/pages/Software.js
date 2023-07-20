@@ -1,5 +1,6 @@
 import Footer from "../components/Footer";
 import NewsletterForm from "../components/NewsletterForm";
+import BrevoForm from "../components/BrevoForm";
 
 export default function Software(){
     return(
@@ -267,8 +268,9 @@ export default function Software(){
 
         {/*    </div>*/}
         {/*</section>*/}
-        <NewsletterForm />
+
         </body>
+        <BrevoForm/>
         <Footer />
     </div>
     );

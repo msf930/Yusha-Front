@@ -1,22 +1,22 @@
 @font-face {
     font-family: zabal;
     font-weight: 400;
-    src: url(zabal/ZabalDEMO-Regular.otf);
+    src: url(ZabalDEMO-Regular.otf);
   }
 @font-face {
     font-family: zabal;
     font-weight: 500;
-    src: url(zabal/ZabalDEMO-Medium.otf);
+    src: url(ZabalDEMO-Medium.otf);
   }
 @font-face {
     font-family: zabal;
     font-weight: 700;
-    src: url(zabal/ZabalDEMO-Bold.otf);
+    src: url(ZabalDEMO-Bold.otf);
   }
 @font-face {
     font-family: zabal;
     font-weight: 800;
-    src: url(zabal/ZabalDEMO-ExtraBold.otf);
+    src: url(ZabalDEMO-ExtraBold.otf);
   }
 * {
     margin: 0;
@@ -220,7 +220,7 @@ position: relative;
 /* banner end */
 /* all-creator starts  */
 .all-creator{
-    background: url(../images/top-wave.png);
+    background: url(top-wave.png);
     padding-top: 160px;
     background-repeat: no-repeat;
     background-size: cover;
@@ -311,7 +311,7 @@ position: relative;
 /* Creativity section end */
 /* Price section starts */
 .price{
-    background: url(../images/bottom-wave.png);
+    background: url(bottom-wave.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
@@ -515,7 +515,7 @@ position: relative;
  /*-------------------------- home page ends here------------------------------- */
  /*--------------------------  about page start here------------------------------- */
  .about-banner{
-    background: url(../images/about-banner.png);
+    background: url(about-banner.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -664,7 +664,7 @@ position: relative;
 }
 /* download page start here */
 .dwnld-price{
-    background: url(../images/download-page-price.png);
+    background: url(download-page-price.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;
