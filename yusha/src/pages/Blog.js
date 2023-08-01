@@ -129,6 +129,10 @@ export default function Blog(){
                                     <a href="https://www.tiktok.com/@animate_with_yusha?lang=en"><i
                                         className="fa-brands fa-tiktok"></i></a>
                                 </div>
+                                <div className="connect-iconbox">
+                                    <a href="https://www.youtube.com/@yusha-ai"target="_blank"><i
+                                        className="fa-brands fa-youtube"></i></a>
+                                </div>
                             </div>
                         </div>
                     </div>
