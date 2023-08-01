@@ -1,10 +1,10 @@
 export default function BrevoForm(){
     return(
-        <div className="sib-form" style={{textAlign: "center", backgroundColor: "#EFF2F7"}}>
-            <div id="sib-form-container" className="sib-form-container">
+        <div className="sib-form brevoForm" style={{textAlign: "left", backgroundColor: "#ECF6FFFF"}}>
+            <div id="sib-form-container " className="sib-form-container">
                 <div id="error-message" className="sib-form-message-panel" style={{
                     fontSize: 16,
-                    textAlign: "left",
+                    textAlign: "center",
                     fontFamily: "&quot Helvetica&quot sans-serif",
                     color: "#661d1d",
                     backgroundColor: "#FFEDED",
@@ -26,7 +26,7 @@ export default function BrevoForm(){
                 </div>
                 <div id="success-message" className="sib-form-message-panel" style={{
                     fontSize: 16,
-                    textAlign: "left",
+                    textAlign: "center",
                     fontFamily: "&quot Helvetica&quot sans-serif",
                     color: "#085229",
                     backgroundColor: "#e7faf0",
@@ -44,13 +44,13 @@ export default function BrevoForm(){
                     </div>
                 </div>
 
-                <div id="sib-container" className="sib-container--large sib-container--vertical" style={{
+                <div id="sib-container" className="sib-container--large sib-container--vertical grid" style={{
                     textAlign: "center",
-                    backgroundColor: "rgba(255,255,255,1)",
-                    maxWidth: 540,
+                    backgroundColor: "#ECF6FFFF",
+                    maxWidth: 800,
                     borderRadius: 3,
                     borderWidth: 1,
-                    borderColor: "#C0CCD9",
+                    borderColor: "#ECF6FFFF",
                     borderStyle: "solid",
                     direction: "ltr"
                 }}>
@@ -63,9 +63,9 @@ export default function BrevoForm(){
                                 textAlign: "left",
                                 fontWeight: 700,
                                 fontFamily: "&quot Helvetica&quot sans-serif",
-                                color: "#3C4858",
+                                color: "#000000",
                                 backgroundColor: "transparent"
-                            }}><p>People are at the heart of Yusha!</p>
+                            }}><h2>People are at the heart of Yusha!</h2>
                             </div>
                         </div>
                         <div style={{padding: "8 0"}}>
@@ -97,7 +97,7 @@ export default function BrevoForm(){
                                         </label>
                                         <div className="entry__field">
                                             <input className="input " type="text" id="EMAIL" name="EMAIL"
-                                                   autoComplete="off" placeholder="janedoe@email.com"
+                                                   autoComplete="off" placeholder="yusha@email.com"
                                                    data-required="true" required/>
                                         </div>
                                     </div>
@@ -166,7 +166,7 @@ export default function BrevoForm(){
                                     fontWeight: "700",
                                     fontFamily: "&quot Helvetica&quot sans-serif",
                                     color: "#FFFFFF",
-                                    backgroundColor: "#f48743",
+                                    backgroundColor: "#EE6611",
                                     borderRadius: 3,
                                     borderWidth: 0
                                 }} form="sib-form" type="submit">
@@ -184,6 +184,12 @@ export default function BrevoForm(){
                         <input type="hidden" name="locale" value="en"/>
                     </form>
                 </div>
+
+
+            </div>
+
+            <div className=" d-lg-block d-none">
+                <img src="images/people-are-at.png" className="img-fluid" alt=""/>
             </div>
         </div>
     );

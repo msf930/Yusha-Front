@@ -11,7 +11,7 @@ export default function Post({ workout }){
     }
     return(
 
-            <div className="col-md-6 col-lg-3 col-sm-12 my-1 py-3">
+            <div className="col-md-6 col-lg-3 col-sm-12 my-1 py-3 postContainer">
                 <div>
                     <div className="postImageContainer">
                         <Link to={`/blog/${workout._id}`}>

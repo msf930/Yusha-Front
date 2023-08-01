@@ -4,6 +4,8 @@ import NewsletterForm from "../components/NewsletterForm";
 import {useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import BrevoForm from "../components/BrevoForm.js";
+import Post from "../components/Post";
+
 
 export default function Home() {
     const [workouts, setWorkouts] = useState(null)
@@ -30,7 +32,7 @@ export default function Home() {
             }
             if (response.ok) {
                 const arr = [];
-                for(let j = 1; j < json.length; j++) {
+                for(let j = 0; j < 4; j++) {
                     arr.push(json[j])
                 }
                 setWorkouts(arr)
@@ -101,7 +103,7 @@ export default function Home() {
                     <div className="row align-items-center pt-5">
                         <div className="col-lg-6">
                             <div className="hand-drawn-left pe-lg-5 pe-0 mb-md-4">
-                                <img src="images/helping-hands.jpg" className="img-fluid cs-shadow rounded-4" alt=""/>
+                                <img src="images/helping-hands.png" className="img-fluid cs-shadow rounded-4" alt=""/>
                             </div>
                         </div>
                         <div className="col-lg-6">
@@ -279,33 +281,46 @@ export default function Home() {
                 <div id="innerHero">
                     <div className="container">
                         <div className="home-blog-section-title">
-                            <h2 className="blog-featured-title">Yusha Blog</h2>
-                            <h4 className="blog-featured-summary">The latest news and stories in the animation industry!</h4>
+                            <div>
+                                <h2 className="blog-featured-title">Yusha Blog</h2>
+                                <h4 className="blog-featured-summary">The latest news and stories in the animation industry!</h4>
+                            </div>
+                            <div>
+                                <a href="blog" className="home-blog-viewMoreBtn">View all <span><i
+                                    className="fa-sharp fa-solid fa-arrow-right"></i></span></a>
+                            </div>
                         </div>
-                        <div className="row  align-items-center">
-                            <div className="col-lg-6  ">
-                                <div className="inner-hero-img mb-lg-0 mb-4 order-lg-2 ">
-                                    <Link to={`/homePost/${featured._id}`}>
-                                        <img src={featured.image} className="img-fluid" alt=""/>
-                                    </Link>
-                                </div>
+                        <div className="container">
+                            <div className="row">
+                                {workouts && workouts.map(workout => (
+                                    <Post key={workout._id} workout={workout}/>
+                                ))}
                             </div>
-                            <div className="col-lg-6  ">
-                                <div className="inner-hero-content order-lg-1">
-                                    {featTagArr && featTagArr.map(featTag => (
-                                        <label className="blog-tag">{featTag}</label>
-                                    ))}
-                                    <Link to={`/homePost/${featured._id}`}>
-                                        <div className="blog-featured-title">{featured.title}</div>
-                                    </Link>
-                                    <div className="blog-featured-summary">{featured.summary}</div>
-                                    <Link to={`/homePost/${featured._id}`}>
-                                        <img src="images/readMore.png" className="py-3" />
-                                    </Link>
-                                </div>
-                            </div>
+                        </div>
+                        {/*<div className="row  align-items-center">*/}
+                        {/*    <div className="col-lg-6  ">*/}
+                        {/*        <div className="inner-hero-img mb-lg-0 mb-4 order-lg-2 ">*/}
+                        {/*            <Link to={`/homePost/${featured._id}`}>*/}
+                        {/*                <img src={featured.image} className="img-fluid" alt=""/>*/}
+                        {/*            </Link>*/}
+                        {/*        </div>*/}
+                        {/*    </div>*/}
+                        {/*    <div className="col-lg-6  ">*/}
+                        {/*        <div className="inner-hero-content order-lg-1">*/}
+                        {/*            {featTagArr && featTagArr.map(featTag => (*/}
+                        {/*                <label className="blog-tag">{featTag}</label>*/}
+                        {/*            ))}*/}
+                        {/*            <Link to={`/homePost/${featured._id}`}>*/}
+                        {/*                <div className="blog-featured-title">{featured.title}</div>*/}
+                        {/*            </Link>*/}
+                        {/*            <div className="blog-featured-summary">{featured.summary}</div>*/}
+                        {/*            <Link to={`/homePost/${featured._id}`}>*/}
+                        {/*                <img src="images/readMore.png" className="py-3" />*/}
+                        {/*            </Link>*/}
+                        {/*        </div>*/}
+                        {/*    </div>*/}
 
-                        </div>
+                        {/*</div>*/}
                     </div>
                 </div>
             </section>
@@ -404,9 +419,6 @@ export default function Home() {
 
             {/*    </div>*/}
             {/*</section>*/}
-
-
-
                 <BrevoForm />
             <Footer />
         </div>

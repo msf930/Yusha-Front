@@ -24,20 +24,24 @@ export default function Footer(){
                                 <li>
                                     <ul className="footer-icon">
                                         <li>
-                                            <a href="https://discord.gg/vEUsd6WJRj"><i
+                                            <a href="https://discord.gg/vEUsd6WJRj" target="_blank"><i
                                                 className="fa-brands fa-discord"></i></a>
                                         </li>
                                         <li>
-                                            <a href="https://www.linkedin.com/company/yusha-ai/about/"><i
+                                            <a href="https://www.linkedin.com/company/yusha-ai/about/" target="_blank"><i
                                                 className="fa-brands fa-linkedin"></i></a>
                                         </li>
                                         <li>
-                                            <a href="https://www.instagram.com/yusha.animation/"><i
+                                            <a href="https://www.instagram.com/yusha.animation/" target="_blank"><i
                                                 className="fa-brands fa-instagram"></i></a>
                                         </li>
                                         <li>
-                                            <a href="https://www.tiktok.com/@animate_with_yusha?lang=en"><i
+                                            <a href="https://www.tiktok.com/@animate_with_yusha?lang=en" target="_blank"><i
                                                 className="fa-brands fa-tiktok"></i></a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.youtube.com/@yusha-ai" target="_blank"><i
+                                                className="fa-brands fa-youtube"></i></a>
                                         </li>
                                     </ul>
                                 </li>

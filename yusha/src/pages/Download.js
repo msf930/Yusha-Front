@@ -6,6 +6,11 @@ import BrevoForm from "../components/BrevoForm";
 
 export default function Download(){
     const [checkout, setCheckOut] = useState(false);
+    const [downloadVisible, setDownloadVisible] = useState(false);
+
+    function handleClick(){
+        setDownloadVisible(true);
+    }
 
     return(
         <div >
@@ -87,6 +92,7 @@ export default function Download(){
                                             });
                                         }}
                                         onApprove={(data, actions) => {
+                                            setDownloadVisible(true);
                                             return actions.order.capture().then((details) => {
                                                 const name = details.payer.name.given_name;
                                                 alert(`Transaction completed by ${name}`);
@@ -98,12 +104,26 @@ export default function Download(){
 
                                 <div id="paypal-button-container"></div>
 
-
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+                                {/*<div className="flex text-center">*/}
+                                {/*    <button*/}
+                                {/*        onClick={handleClick}*/}
+                                {/*        className="btn cs-btn"*/}
+                                {/*        >*/}
+                                {/*        test*/}
+                                {/*    </button>*/}
+                                {/*</div>*/}
+                                <div className="flex text-center">
+                                    {downloadVisible &&
+                                        <a href="" download>
+                                            <button className="btn cs-btn">Download</button>
+                                        </a>
+                                    }
+                                </div>
         </section>
         {/* Price section ends */}
 

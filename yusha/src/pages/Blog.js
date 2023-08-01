@@ -87,7 +87,9 @@ export default function Blog(){
                                     </Link>
                                     <div className="blog-featured-summary">{featured.summary}</div>
                                     <Link to={`/blog/${featured._id}`}>
-                                            <img src="images/readMore.png" className="py-3" />
+                                        <h5 className="readMore">Read More <span><i
+                                            className="fa-sharp fa-solid fa-arrow-right"></i></span>
+                                        </h5>
                                     </Link>
                                 </div>
                             </div>

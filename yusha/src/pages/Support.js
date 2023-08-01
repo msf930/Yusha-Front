@@ -38,22 +38,26 @@ export default function Support(){
                         <h2>Connect with Us!</h2>
                         <h4>We’re here! Let’s talk.</h4>
                     </div>
-                    <div className="col-lg-8 m-auto">
+                    <div className="col-lg-12 ">
                         <div className="connect-icon">
                             <div className="connect-iconbox">
-                                <a href="https://discord.gg/vEUsd6WJRj"><i className="fa-brands fa-discord"></i></a>
+                                <a href="https://discord.gg/vEUsd6WJRj" target="_blank"><i className="fa-brands fa-discord"></i></a>
                             </div>
                             <div className="connect-iconbox">
-                                <a href="https://www.linkedin.com/company/yusha-ai/about/"><i
+                                <a href="https://www.linkedin.com/company/yusha-ai/about/ " target="_blank"><i
                                     className="fa-brands fa-linkedin"></i></a>
                             </div>
                             <div className="connect-iconbox">
-                                <a href="https://www.instagram.com/yusha.animation/"><i
+                                <a href="https://www.instagram.com/yusha.animation/"target="_blank"><i
                                     className="fa-brands fa-instagram"></i></a>
                             </div>
                             <div className="connect-iconbox">
-                                <a href="https://www.tiktok.com/@animate_with_yusha?lang=en"><i
+                                <a href="https://www.tiktok.com/@animate_with_yusha?lang=en"target="_blank"><i
                                     className="fa-brands fa-tiktok"></i></a>
+                            </div>
+                            <div className="connect-iconbox">
+                                <a href="https://www.youtube.com/@yusha-ai"target="_blank"><i
+                                    className="fa-brands fa-youtube"></i></a>
                             </div>
                         </div>
                     </div>

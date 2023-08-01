@@ -372,6 +372,8 @@ position: relative;
     color: #212121;
     padding-top: 10px;
     padding-bottom: 32px;
+    display: grid;
+    grid-template-columns: 80% auto;
 }
 /* Price section ends */
 .home-blog-featured{
@@ -382,6 +384,11 @@ position: relative;
     padding-top: 40px;
     padding-bottom: 40px;
 }
+.home-blog-viewMoreBtn{
+    justify-content: end;
+    color: var(--cs-primary);
+}
+
 /* Software Updates section starts */
 .Software{
     padding: 80px 0;
@@ -447,7 +454,7 @@ position: relative;
     display: flex;
     justify-content: space-between;
     margin-bottom: 40px;
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
 }
 .connect-iconbox{
@@ -838,7 +845,7 @@ color: #7B7B7B;
     padding-bottom: 40px;
 }
 .blog-featured-title{
-    font-size: 2em;
+    font-size: 1.8em;
     font-weight: bold;
     line-height: 45px;
     text-decoration: none;
@@ -851,12 +858,29 @@ color: #7B7B7B;
     line-height: 20px;
     padding-top: 20px;
 }
-.blog-tag{
+.readMore{
+    padding-top: 20px;
+    color:#EE6611
+}
+.blog-tag:nth-child(odd){
     color:white;
     background-color: #EE6611;
     padding: 2px 6px;
-    margin: 12px 7px 12px 0px;
+    margin: 5px 7px 0px 0px;
     border-radius: 10px;
+}
+.blog-tag:nth-child(even){
+    color:white;
+    background-color: #1679D4;
+    padding: 2px 6px;
+    margin: 5px 7px 0px 0px;
+    border-radius: 10px;
+}
+.postContainer{
+    transition:  0.5s ease-in-out;
+}
+.postContainer:hover{
+    transform: scale(1.08);
 }
 .postImageContainer{
     min-height: 172px;
@@ -864,13 +888,12 @@ color: #7B7B7B;
     justify-content: center;
     align-items: center;
 }
+
 .blog-image{
-    box-shadow:0px 0px  #1679D4;
-    transition: box-shadow 0.2s ease-in-out;
+    transition:  0.2s ;
 }
-.blog-image:hover{
-    box-shadow:5px 5px 5px #1679D4;
-    transition: box-shadow 0.2s ease-in-out;
+.postContainer:hover .blog-image{
+    transform: scale(1.05);
 }
 .connect-us-blog{
     background-color: #FCDDCA;
@@ -916,4 +939,9 @@ color: #7B7B7B;
     display: flex;
     justify-content: space-between;
 
+}
+.brevoForm{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
 }
