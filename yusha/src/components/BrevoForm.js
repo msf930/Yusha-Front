@@ -1,4 +1,48 @@
+import {useState} from "react";
+import Swal from 'sweetalert2'
+
 export default function BrevoForm(){
+
+    const [email, setEmail] = useState("");
+    const [optIn, setOptIn] = useState(false);
+
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+    })
+
+
+const formHandler = (event) => {
+    console.log(optIn);
+    event.preventDefault();
+    fetch("https://api.brevo.com/v3/contacts",
+        { method: 'POST',
+            headers: {
+                "Content-Type":"application/json",
+                "api-key": "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",
+                "accept": "application/json"
+            },
+            body: JSON.stringify({
+                listIds: [3],
+                email: email,
+                OPT_IN: optIn ? 1 : 0,
+                email_address_check: undefined,
+                locale: "en"})
+        })
+    document.getElementById("sib-form").reset();
+    Toast.fire({
+        icon: 'success',
+        title: 'You are Subscribed!'
+    })
+}
+
     return(
         <div className="sib-form brevoForm" style={{textAlign: "left", backgroundColor: "#ECF6FFFF"}}>
             <div id="sib-form-container " className="sib-form-container">
@@ -55,8 +99,10 @@ export default function BrevoForm(){
                     direction: "ltr"
                 }}>
                     <form id="sib-form" method="POST"
-                          action="https://feb7ebfd.sibforms.com/serve/MUIFAFt_9hZocUp0VDg8kQXJmGQo7lmfoCg79HwEwnnTRABGEDS8anTCFpnPZUxDMBfU6sDpLDubrRHmoHtsjAL_cysSemu2LyTe0Q6WP1Zh5se0XuwXidVPo6hEXpQ_heNaOvTTabkHm9CfZH1bz2zNp8krcT3aMIy56OVycSdpvpQggk08S7foyG2fnDQCEeUp9TtPpone8N04"
-                          data-type="subscription">
+                          // action="https://feb7ebfd.sibforms.com/serve/MUIFAFt_9hZocUp0VDg8kQXJmGQo7lmfoCg79HwEwnnTRABGEDS8anTCFpnPZUxDMBfU6sDpLDubrRHmoHtsjAL_cysSemu2LyTe0Q6WP1Zh5se0XuwXidVPo6hEXpQ_heNaOvTTabkHm9CfZH1bz2zNp8krcT3aMIy56OVycSdpvpQggk08S7foyG2fnDQCEeUp9TtPpone8N04"
+                          data-type="subscription"
+                           onSubmit={(event) => formHandler(event)}
+                    >
                         <div style={{padding: "8 0"}}>
                             <div className="sib-form-block" style={{
                                 fontSize: 30,
@@ -98,7 +144,7 @@ export default function BrevoForm(){
                                         <div className="entry__field">
                                             <input className="input " type="text" id="EMAIL" name="EMAIL"
                                                    autoComplete="off" placeholder="yusha@email.com"
-                                                   data-required="true" required/>
+                                                   data-required="true" required onChange={(event) => setEmail(event.target.value)}/>
                                         </div>
                                     </div>
                                     <label className="entry__error entry__error--primary" style={{
@@ -121,7 +167,7 @@ export default function BrevoForm(){
                                         <div className="entry__choice" style={{}}>
                                             <label>
                                                 <input type="checkbox" className="input_replaced" value="1" id="OPT_IN"
-                                                       name="OPT_IN"/>
+                                                       name="OPT_IN" onClick={() => setOptIn((prev) => !prev)}/>
                                                 <span className="checkbox checkbox_tick_positive"
                                                       style={{marginLeft: 0}}>
                                                 </span>
@@ -169,7 +215,7 @@ export default function BrevoForm(){
                                     backgroundColor: "#EE6611",
                                     borderRadius: 3,
                                     borderWidth: 0
-                                }} form="sib-form" type="submit">
+                                }}  form="sib-form" type="submit">
                                     <svg className="icon clickable__icon progress-indicator__icon sib-hide-loader-icon"
                                          viewBox="0 0 512 512">
                                         <path
