@@ -3,36 +3,68 @@ import '../style.css';
 import '../media.css';
 import Footer from "../components/Footer";
 import NewsletterForm from "../components/NewsletterForm";
-
 import {useEffect,useState} from "react";
 import {useParams} from "react-router-dom";
+import client from "../client";
+import { format } from "date-fns"
+import BlockContent from "@sanity/block-content-to-react"
 
 
 export default function PostPage() {
-    const {id} = useParams();
 
-    const [workoutInfo, setWorkoutInfo] = useState(null)
-
+    const [singlePost, setSinglePost] = useState([])
+    const { slug } = useParams()
     useEffect(() => {
-        fetch(`/api/workouts/${id}`)
-            .then (response => {
-            response.json().then(workoutInfo => {
-                setWorkoutInfo(workoutInfo);
-            });
-        });
+        client.fetch(
+            `*[slug.current == "${slug}"]{
+        title,
+        slug,
+        tags,
+        author,
+        body,
+        summary,
+        categories,
+        publishedAt,
+        mainImage {
+          asset -> {
+            _id,
+            url
+          },
+          alt
+        }
+      }`
+        )
+            .then((data) => setSinglePost(data[0]))
+            .catch(console.error)
 
-    }, []);
-    if(!workoutInfo) return"";
+    }, [])
 
-    const stringArr = workoutInfo.body.split("*");
 
-    const postTagArr = [];
-    const postSplitTagArr = workoutInfo.tags.split("*");
-    if (postSplitTagArr[0] != ""){
-        postSplitTagArr.forEach((postTag) => {
-            postTagArr.push(postTag);
-        })
-    }
+    // const {id} = useParams();
+    //
+    // const [workoutInfo, setWorkoutInfo] = useState(null)
+    //
+    // useEffect(() => {
+    //     fetch(`/api/workouts/${id}`)
+    //         .then (response => {
+    //         response.json().then(workoutInfo => {
+    //             setWorkoutInfo(workoutInfo);
+    //         });
+    //     });
+    //
+    // }, []);
+    // if(!workoutInfo) return"";
+    if(!singlePost) return"";
+
+    //const stringArr = workoutInfo.body.split("*");
+
+    // const postTagArr = [];
+    // const postSplitTagArr = workoutInfo.tags.split("*");
+    // if (postSplitTagArr[0] != ""){
+    //     postSplitTagArr.forEach((postTag) => {
+    //         postTagArr.push(postTag);
+    //     })
+    // }
 
     return(
         <div>
@@ -40,21 +72,26 @@ export default function PostPage() {
                 <div className="container">
                     <div className="row">
                         <a href="/blog" className="blog-page-btn">&lt; Blogs</a>
-                        <img src={workoutInfo.image} alt={workoutInfo.title}/>
+                        <img src={singlePost?.mainImage?.asset?.url} alt={singlePost.title}/>
                         <div className="tag-group">
-                            {postTagArr && postTagArr.map(tag => (
+                            {singlePost?.tags?.map(tag => (
                                 <label className="blog-page-tag">{tag}</label>
                             ))}
                         </div>
-                        <h1 className="blog-page-title">{workoutInfo.title}</h1>
+                        <h1 className="blog-page-title">{singlePost?.title}</h1>
                         <div>
-                            <div className="blog-page-info">
-                                <h5>By: {workoutInfo.author}  |  {workoutInfo.date.slice(5,10) +"-" +  workoutInfo.date.slice(0,4)}</h5>
-                            </div>
-                            {stringArr.map(paragraph => (
-                                <p>{paragraph}</p>
-                            ))}
-                            <a href={workoutInfo.link}>{workoutInfo.link}</a>
+                            {singlePost?.publishedAt && (
+                                <div className="blog-page-info">
+                                    <h5>
+                                    By {singlePost.author} on{" "} {format(new Date(singlePost.publishedAt), "dd MMMM yyyy")}
+                                    </h5>
+                                </div>
+                            )}
+                            <BlockContent
+                                blocks={singlePost.body}
+                                projectId="pnj4edkv"
+                                dataset="production"
+                            />
                         </div>
 
                     </div>

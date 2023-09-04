@@ -1,9 +1,10 @@
 import Footer from "../components/Footer";
-import NewsletterForm from "../components/NewsletterForm";
-import Post from "../components/Post";
+import SanityPost from "../components/SanityPost";
 import {useEffect,useState} from "react";
 import {Link} from "react-router-dom";
 import BrevoForm from "../components/BrevoForm";
+import client from "../client";
+import BlockContent from "@sanity/block-content-to-react";
 
 
 
@@ -11,47 +12,102 @@ import BrevoForm from "../components/BrevoForm";
 
 export default function Blog(){
 
-    const [workouts, setWorkouts] = useState(null)
-    const [featured, setFeatured] = useState([])
-
-
+    //SANITY
+    const [featuredPost, setFeaturedPost] = useState([])
     useEffect(() => {
-        const fetchWorkouts = async () => {
-            //const response = await fetch('/api/workouts')
-            const response = await fetch(`/api/workouts`)
-            const jsonRaw = await response.json()
-            const json = [];
-            const now = Date.now();
-            for(let k = 0; k < jsonRaw.length; k++) {
-                const postTime = new Date(jsonRaw[k].date);
-                if ( postTime.getTime() < now){
-                    json.push(jsonRaw[k])
-                }
-            }
-            console.log("length " + json.length);
-
-            for(let i = 0; i < 1; i++) {
-                setFeatured(json[i])
-            }
-            if (response.ok) {
-                const arr = [];
-                for(let j = 1; j < json.length; j++) {
-                    arr.push(json[j])
-                }
-                setWorkouts(arr)
-            }
+        const fetchFeat = async () => {
+           const featResponse = await client.fetch(
+                `*[_type == "post"] | order(publishedAt desc) [0] {
+        title,
+        slug,
+        tags,
+        body,
+        summary,
+        categories,
+        publishedAt,
+        mainImage {
+          asset -> {
+            _id,
+            url
+          },
+          alt
         }
-        fetchWorkouts()
+      }`
+            )
+            const featData = await featResponse;
+            setFeaturedPost(featData);
+        }
+        fetchFeat();
     }, [])
-    if(!workouts) return"";
 
-    const featTagArr = []
-    const splitTagArr = featured.tags.split("*");
-    if (splitTagArr[0] != ""){
-        splitTagArr.forEach((featTag) => {
-            featTagArr.push(featTag);
-        })
-    }
+    const [allPosts, setAllPosts] = useState([])
+    useEffect(() => {
+        const fetchAll = async () => {
+           const allResponse = await client.fetch(
+                `*[_type == "post"] | order(publishedAt desc)[1..-1]{
+        title,
+        slug,
+        tags,
+        body,
+        summary,
+        categories,
+        publishedAt,
+        mainImage {
+          asset -> {
+            _id,
+            url
+          },
+          alt
+        }
+      }`
+            )
+                const allData = await allResponse;
+            setAllPosts(allData);
+        }
+        fetchAll();
+    }, [])
+
+
+/////////////////////////////////////////////////////////////////////
+
+    // const [workouts, setWorkouts] = useState(null)
+    //
+    //
+    // useEffect(() => {
+    //     const fetchWorkouts = async () => {
+    //         //const response = await fetch('/api/workouts')
+    //         const response = await fetch(`/api/workouts`)
+    //         const jsonRaw = await response.json()
+    //         const json = [];
+    //         const now = Date.now();
+    //         for(let k = 0; k < jsonRaw.length; k++) {
+    //             const postTime = new Date(jsonRaw[k].date);
+    //             if ( postTime.getTime() < now){
+    //                 json.push(jsonRaw[k])
+    //             }
+    //         }
+    //
+    //
+    //         if (response.ok) {
+    //             const arr = [];
+    //             for(let j = 1; j < json.length; j++) {
+    //                 arr.push(json[j])
+    //             }
+    //             setWorkouts(arr)
+    //         }
+    //     }
+    //     fetchWorkouts()
+    // }, [])
+    //
+    // if(!workouts) return"";
+
+
+
+
+
+
+
+
 
 
     return(
@@ -66,27 +122,35 @@ export default function Blog(){
                     </div>
                 </div>
             </header>
+
+            {/*SANITY FEATURED*/}
             <section className="blog-featured" id="pricing">
                 <div id="innerHero">
                     <div className="container">
                         <div className="row  align-items-center">
                             <div className="col-lg-6  ">
                                 <div className="inner-hero-img mb-lg-0 mb-4 order-lg-2 ">
-                                    <Link to={`/blog/${featured._id}`}>
-                                    <img src={featured.image} className="img-fluid" alt=""/>
+                                    <Link to={`/blog/${featuredPost?.slug?.current}`}>
+                                    <img src={featuredPost?.mainImage?.asset?.url} className="img-fluid" alt=""/>
                                     </Link>
                                 </div>
                             </div>
                             <div className="col-lg-6  ">
                                 <div className="inner-hero-content order-lg-1">
-                                    {featTagArr && featTagArr.map(featTag => (
-                                        <label className="blog-tag">{featTag}</label>
+                                    {featuredPost?.tags?.map(featTag => (
+                                        <label className="blog-page-tag">{featTag}</label>
                                     ))}
-                                    <Link to={`/blog/${featured._id}`}>
-                                        <div className="blog-featured-title">{featured.title}</div>
+                                    <Link to={`/blog/${featuredPost?.slug?.current}`}>
+                                        <div className="blog-featured-title">{featuredPost?.title}</div>
                                     </Link>
-                                    <div className="blog-featured-summary">{featured.summary}</div>
-                                    <Link to={`/blog/${featured._id}`}>
+                                    <div className="blog-featured-summary">
+                                        <BlockContent
+                                            blocks={featuredPost.summary}
+                                            projectId="pnj4edkv"
+                                            dataset="production"
+                                        />
+                                    </div>
+                                    <Link to={`/blog/${featuredPost?.slug?.current}`}>
                                         <h5 className="readMore">Read More <span><i
                                             className="fa-sharp fa-solid fa-arrow-right"></i></span>
                                         </h5>
@@ -98,10 +162,10 @@ export default function Blog(){
                     </div>
                 </div>
             </section>
-                <div className="container">
+            <div className="container">
                     <div className="row">
-                            {workouts && workouts.map(workout => (
-                                <Post key={workout._id} workout={workout}/>
+                            {allPosts.map(post => (
+                                <SanityPost key={post?.slug} post={post}/>
                             ))}
                     </div>
                 </div>
@@ -130,7 +194,7 @@ export default function Blog(){
                                         className="fa-brands fa-tiktok"></i></a>
                                 </div>
                                 <div className="connect-iconbox">
-                                    <a href="https://www.youtube.com/@yusha-ai"target="_blank"><i
+                                    <a href="https://www.youtube.com/@yusha-ai" target="_blank"><i
                                         className="fa-brands fa-youtube"></i></a>
                                 </div>
                             </div>
@@ -139,7 +203,9 @@ export default function Blog(){
                 </div>
             </section>
 
-            <BrevoForm />
+            <div id="signUp">
+                <BrevoForm />
+            </div>
             <Footer />
 
         </div>

@@ -1,80 +1,110 @@
-import { HashLink } from 'react-router-hash-link';
 import Footer from "../components/Footer";
-import NewsletterForm from "../components/NewsletterForm";
 import {useEffect, useState} from "react";
-import {Link} from "react-router-dom";
 import BrevoForm from "../components/BrevoForm.js";
-import Post from "../components/Post";
+import HomeHeaderForm from "../components/HomeHeaderForm.js";
+import PricingBrevoForm from "../components/PricingBrevoForm.js";
+import client from "../client";
+import SanityPost from "../components/SanityPost";
 
 
 export default function Home() {
-    const [workouts, setWorkouts] = useState(null)
-    const [featured, setFeatured] = useState([])
 
-
+    const [homePosts, setHomePosts] = useState([])
     useEffect(() => {
-        const fetchWorkouts = async () => {
-            //const response = await fetch('/api/workouts')
-            const response = await fetch(`/api/workouts`)
-            const jsonRaw = await response.json()
-            const json = [];
-            const now = Date.now();
-            for(let k = 0; k < jsonRaw.length; k++) {
-                const postTime = new Date(jsonRaw[k].date);
-                if ( postTime.getTime() < now){
-                    json.push(jsonRaw[k])
-                }
-            }
-            console.log("length " + json.length);
-
-            for(let i = 0; i < 1; i++) {
-                setFeatured(json[i])
-            }
-            if (response.ok) {
-                const arr = [];
-                for(let j = 0; j < 4; j++) {
-                    arr.push(json[j])
-                }
-                setWorkouts(arr)
-            }
+        const fetchHome = async () => {
+            const homeResponse = await client.fetch(
+                `*[_type == "post"] | order(publishedAt desc)[0..3]{
+        title,
+        slug,
+        tags,
+        body,
+        summary,
+        categories,
+        publishedAt,
+        mainImage {
+          asset -> {
+            _id,
+            url
+          },
+          alt
         }
-        fetchWorkouts()
+      }`
+            )
+            const homeData = await homeResponse;
+            setHomePosts(homeData);
+        }
+        fetchHome();
     }, [])
-    if(!workouts) return"";
 
-    const featTagArr = []
-    const splitTagArr = featured.tags.split("*");
-    if (splitTagArr[0] != ""){
-        splitTagArr.forEach((featTag) => {
-            featTagArr.push(featTag);
-        })
-    }
+
+    // const [workouts, setWorkouts] = useState(null)
+    // const [featured, setFeatured] = useState([])
+    //
+    //
+    // useEffect(() => {
+    //     const fetchWorkouts = async () => {
+    //         //const response = await fetch('/api/workouts')
+    //         const response = await fetch(`/api/workouts`)
+    //         const jsonRaw = await response.json()
+    //         const json = [];
+    //         const now = Date.now();
+    //         for(let k = 0; k < jsonRaw.length; k++) {
+    //             const postTime = new Date(jsonRaw[k].date);
+    //             if ( postTime.getTime() < now){
+    //                 json.push(jsonRaw[k])
+    //             }
+    //         }
+    //         console.log("length " + json.length);
+    //
+    //         for(let i = 0; i < 1; i++) {
+    //             setFeatured(json[i])
+    //         }
+    //         if (response.ok) {
+    //             const arr = [];
+    //             for(let j = 0; j < 4; j++) {
+    //                 arr.push(json[j])
+    //             }
+    //             setWorkouts(arr)
+    //         }
+    //     }
+    //     fetchWorkouts()
+    // }, [])
+    // if(!workouts) return"";
+    //
+    // const featTagArr = []
+    // const splitTagArr = featured.tags.split("*");
+    // if (splitTagArr[0] != ""){
+    //     splitTagArr.forEach((featTag) => {
+    //         featTagArr.push(featTag);
+    //     })
+    // }
 
     return(
-        <div>
+        <div className="gradientBG">
             {/* header starts */}
-            <header>
-                {/* header end */}
-                <div className="container">
-                    <div className="row banner-row align-items-center">
-                        <div className="col-lg-6 order-lg-1 order-2">
-                            <div className="banner-content">
-                                <h1>Animate your drawings faster!</h1>
-                                <h4>The animation tool that allows<br/> you to create more.</h4>
-                                <div className="banner-btnbox">
-                                    <a href="download#pricing" className="btn cs-btn">Get Started</a>
-                                    <a href="software" className="btn cs-btn cs-btn-secondary">Learn more</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-lg-6 order-lg-2 order-1">
-                            <div className="banner-img">
-                                <img src="images/hero-img.png" className="img-fluid" alt=""/>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </header>
+            {/*<div className="homeHeader">*/}
+            {/*    /!* header end *!/*/}
+
+            {/*    <div className="container">*/}
+
+            {/*        <div className="row banner-row align-items-center">*/}
+            {/*            <div className="headerContainer">*/}
+            {/*                <div className="banner-content">*/}
+            {/*                    <h1>Animate your drawings faster!</h1>*/}
+            {/*                    <h4>The animation tool that allows<br/> you to create more.</h4>*/}
+            {/*                    <div className="banner-btnbox">*/}
+            {/*                        <a href="download#pricing" className="btn cs-btn">Get Started</a>*/}
+            {/*                        <a href="software" className="btn cs-btn cs-btn-secondary">Learn more</a>*/}
+            {/*                    </div>*/}
+            {/*                </div>*/}
+            {/*            </div>*/}
+
+            {/*        </div>*/}
+            {/*    </div>*/}
+            {/*</div>*/}
+            <div>
+                <HomeHeaderForm />
+            </div>
             {/* banner end */}
             {/* all creator section starts */}
             <section className="all-creator">
@@ -87,7 +117,7 @@ export default function Home() {
                         </div>
                         <div className="col-md-8 col-lg-6">
                             <div className="creator-middle mb-4">
-                                <h1>We are all Creators</h1>
+                                <h1 className="cs-text">We are all Creators</h1>
                                 <h4>Yusha is an animation tool dedicated to giving individuals the power to share their stories by
                                     creating
                                     animations.</h4>
@@ -109,7 +139,7 @@ export default function Home() {
                         <div className="col-lg-6">
                             <div className="hand-drawn-right">
                                 <h4>We aren't about AI art</h4>
-                                <h2>We care about ONLY your style</h2>
+                                <h2>We only care about YOUR style</h2>
                                 <h4>Yusha hopes to help bring back older styles centered
                                     around hand-drawn style by assisting with the
                                     production of assets and scenes.</h4>
@@ -133,12 +163,9 @@ export default function Home() {
                         {/* mobile responsive part end*/}
                         <div className="col-lg-6 order-lg-1 order-2">
                             <div className="hand-drawn-right">
-                                <h4>Everyone has a story to tell!</h4>
-                                <h2>Our Animation Tool</h2>
-                                <h4>Yusha can help you with prototyping and quickly creating
-                                    rough drafts of your storyboards. You can then edit any
-                                    asset you want so you can focus more on the heart of your
-                                    story!</h4>
+                                <h4>Letting anyone tell their story!</h4>
+                                <h2>AI Animation Software</h2>
+                                <h4>Yusha can help you draw your character in their scene, ready to be edited, so you can focus on editing the flow of your work and share your story.</h4>
                                 <div className="goals">
                                     <a href="software">Learn more about Yusha software <span><i
                                         className="fa-sharp fa-solid fa-arrow-right"></i></span></a>
@@ -171,22 +198,19 @@ export default function Home() {
                                         className="fa-sharp fa-solid fa-arrow-right"></i></span></a>
                                     <ul>
                                         <li>
-                                            <a href="https://discord.gg/vEUsd6WJRj"><img src="images/discord.png" className="img-fluid"
-                                                                                         alt=""/></a>
+                                            <a href="https://discord.gg/vEUsd6WJRj" target="_blank"><img src="images/discord.png" className="img-fluid" alt=""/></a>
                                         </li>
                                         <li>
-                                            <a href="https://www.linkedin.com/company/yusha-ai/about/"><img  src="images/linkdin.png"
-                                                                                                            className="img-fluid" alt=""/></a>
+                                            <a href="https://www.linkedin.com/company/yusha-ai/about/" target="_blank"><img  src="images/linkdin.png" className="img-fluid" alt=""/></a>
                                         </li>
                                         <li>
-                                            <a href="https://www.instagram.com/yusha.animation/"><img src="images/instagram.png"
-                                                                                                      className="img-fluid"
-                                                                                                      alt=""/></a>
+                                            <a href="https://www.instagram.com/yusha.animation/" target="_blank"><img src="images/instagram.png" className="img-fluid" alt=""/></a>
                                         </li>
                                         <li>
-                                            <a href="https://www.tiktok.com/@animate_with_yusha?lang=en"><img src="images/tiktok.png"
-                                                                                                              className="img-fluid tiktok"
-                                                                                                              alt=""/></a>
+                                            <a href="https://www.tiktok.com/@animate_with_yusha?lang=en"target="_blank"><img src="images/tiktok.png" className="img-fluid tiktok" alt=""/></a>
+                                        </li>
+                                        <li>
+                                            <a href="https://www.youtube.com/@yusha-ai" target="_blank"><img src="images/youtube.png" className="img-fluid tiktok" alt=""/></a>
                                         </li>
                                     </ul>
                                 </div>
@@ -240,40 +264,66 @@ export default function Home() {
 
             {/* Creativity section ends */}
             {/* Price section starts */}
-            <section className="price">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-12">
-                            <div className="price-body">
-                                <h2>Pricing</h2>
-                                <h4>Here is our current plan and what it includes.</h4>
-                                <div className="beta">
-                                    <h4>Absolute Beta</h4>
-                                    <h4 className="beta-border ">$ 5.00 <span>/ One-time payment</span></h4>
-                                    <ul>
-                                        <li>
-                                            <span><i className="fa-solid fa-check"></i></span>
-                                            <p>Initial software platform</p>
-                                        </li>
-                                        <li>
-                                            <span><i className="fa-solid fa-check"></i></span>
-                                            <p>Basic animation tools</p>
-                                        </li>
-                                        <li>
-                                            <span><i className="fa-solid fa-check"></i></span>
-                                            <p>Yusha’s automation feature</p>
-                                        </li>
-                                        <li>
-                                            <span><i className="fa-solid fa-check"></i></span>
-                                            <p>Receive all future updates even after Absolute Beta program ends</p>
-                                        </li>
-                                    </ul>
-                                    <div className="price-btn">
-                                        <a href="download#pricing" className="btn cs-btn">Select Plan</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            {/*<section className="price">*/}
+            {/*    <div className="container">*/}
+            {/*        <div className="row">*/}
+            {/*            <div className="col-lg-12">*/}
+            {/*                <div className="price-body" >*/}
+            {/*                    <h2>Pricing</h2>*/}
+            {/*                    <h4>Here is our current plan and what it includes.</h4>*/}
+            {/*                    <div className="beta">*/}
+            {/*                        <h4>Absolute Beta</h4>*/}
+            {/*                        <h4 className="beta-border ">$ 5.00 <span>/ One-time payment</span></h4>*/}
+            {/*                        <ul>*/}
+            {/*                            <li>*/}
+            {/*                                <span><i className="fa-solid fa-check"></i></span>*/}
+            {/*                                <p>Initial software platform</p>*/}
+            {/*                            </li>*/}
+            {/*                            <li>*/}
+            {/*                                <span><i className="fa-solid fa-check"></i></span>*/}
+            {/*                                <p>Basic animation tools</p>*/}
+            {/*                            </li>*/}
+            {/*                            <li>*/}
+            {/*                                <span><i className="fa-solid fa-check"></i></span>*/}
+            {/*                                <p>Yusha’s automation feature</p>*/}
+            {/*                            </li>*/}
+            {/*                            <li>*/}
+            {/*                                <span><i className="fa-solid fa-check"></i></span>*/}
+            {/*                                <p>Receive all future updates even after Absolute Beta program ends</p>*/}
+            {/*                            </li>*/}
+            {/*                        </ul>*/}
+            {/*                        <div className="price-btn">*/}
+            {/*                            <a href="download#pricing" className="btn cs-btn">Select Plan</a>*/}
+            {/*                        </div>*/}
+            {/*                    </div>*/}
+            {/*                </div>*/}
+            {/*            </div>*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
+            {/*</section>*/}
+            <div id="signUp">
+                <PricingBrevoForm/>
+            </div>
+            <section className="whatsIncluded">
+                <div className="whatsIncludedHeader">
+                    <h2>What's Included?</h2>
+                    <h4 className="m-10">Here is what you can expect when you download Yusha.</h4>
+                </div>
+                <div className="includedItemContainer">
+                    <div className="includedItem">
+                        <img src="images/yushaFast.png"/>
+                        <h4 className="includedItemTitle">Animation tools for speed</h4>
+                        <p className="includedItemBody">With Yusha's tools, your animation process is faster and more efficient. Yusha assists with creating assets and frames needed in your scenes.</p>
+                    </div>
+                    <div className="includedItem">
+                        <img src="images/yushaHearts.png"/>
+                        <h4 className="includedItemTitle">Familiar platform support</h4>
+                        <p className="includedItemBody">Yusha’s animation platform is powered by Godot, so users have access to the animations tools and layout with an immense amount of support.</p>
+                    </div>
+                    <div className="includedItem">
+                        <img src="images/yushaHelp.png"/>
+                        <h4 className="includedItemTitle">A helping hand from Yusha</h4>
+                        <p className="includedItemBody">The Yusha team is dedicated to continuously improving the product. Yusha is working to fix your issues and help debug with you.</p>
                     </div>
                 </div>
             </section>
@@ -292,8 +342,8 @@ export default function Home() {
                         </div>
                         <div className="container">
                             <div className="row">
-                                {workouts && workouts.map(workout => (
-                                    <Post key={workout._id} workout={workout}/>
+                                {homePosts && homePosts.map(post => (
+                                    <SanityPost key={post.slug} post={post}/>
                                 ))}
                             </div>
                         </div>
@@ -419,7 +469,6 @@ export default function Home() {
 
             {/*    </div>*/}
             {/*</section>*/}
-                <BrevoForm />
             <Footer />
         </div>
     );

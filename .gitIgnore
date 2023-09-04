@@ -2,3 +2,5 @@ backend/.env
 *node_modules*
 yusha/.idea
 yusha/.env
+*.env*
+*.env.local*

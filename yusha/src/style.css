@@ -90,6 +90,33 @@ li {
     padding: 12px 24px;
     transition: .3s;
 }
+.cs-btn-about{
+    background: #FFFFFF !important;
+    border-radius: 8px;
+    font-family: zabal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    color: #EE6611 !important;
+    border: 2px solid #EE6611 !important;
+    padding: 12px 24px;
+    transition: .3s;
+}
+@media (max-width: 900px)  {
+    .cs-btn-about{
+        background: #FFFFFF !important;
+        border-radius: 8px;
+        font-family: zabal;
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 24px;
+        color: #EE6611 !important;
+        border: 2px solid #EE6611 !important;
+        padding: 12px 24px;
+        transition: .3s;
+        margin-top: 20px;
+    }
+}
 .cs-btn-secondary{
     background: #fff !important;
     color: #EE6611 !important;
@@ -99,6 +126,11 @@ li {
 .cs-btn:hover {
     background: #d1590e !important;
     transition: .3s;
+}
+.cs-btn-about:hover {
+    background: #d1590e !important;
+    transition: .3s;
+    color: #fff !important;
 }
 .cs-btn-secondary:hover {
     color: #fff !important;
@@ -194,11 +226,87 @@ position: relative;
 }
 /* header ends  */
 /* banner start */
+
+
+.gradientBG{
+    background: linear-gradient(120deg,
+    rgba(236,246,255,1) 0%,
+    rgba(240,245,226,.75) 10%,
+    rgba(252,221,202,.54) 25%,
+    rgba(204,225,244,.49) 45%,
+    rgba(219,224,231,.64) 60%,
+    rgba(229,223,222,.75) 75%,
+    rgba(252,221,202,1) 100%
+    );
+}
+.homeBrevoHeader{
+    position: relative;
+    top: 0;
+    left: 0;
+}
+.homeHeaderImgGroup{
+    animation: fadeInAnimation ease 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+@keyframes fadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@media (max-width: 992px) {
+    .homeHeaderImgGroup{
+        display: none;
+    }
+}
+.homeHeadImg1{
+    position: absolute;
+    height: 129px;
+    width: 129px;
+    top: 20%;
+    left: 10%;
+    z-index: 1;
+}
+.homeHeadImg2{
+    position: absolute;
+    height: 140px;
+    width: 140px;
+    top: 90%;
+    left: 20%;
+    z-index: 1;
+}
+.homeHeadImg3{
+    position: absolute;
+    height: 188px;
+    width: 188px;
+    top: 35%;
+    left: 80%;
+    z-index: 1;
+}
+
+.homeHeaderBuffer{
+    margin-top: 20vh;
+}
+.homeHeader{
+    background: none;
+}
+.headerContainer{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 110px;
+    z-index: 3;
+}
 .banner-row {
     min-height: 780px;
 }
 .banner-content{
-    max-width: 400px;
+    max-width: 710px;
+
 }
 .banner-content h1{
    color: var(--cs-primary);
@@ -211,17 +319,18 @@ position: relative;
     margin-right: 15px;
 }
 .inner-hero-row {
-    margin-top: 120px;
+    margin-top: 90px;
     padding: 50px 0;
 }
 .inner-hero-content {
     max-width: 800px;
     padding: 0rem 2rem;
+    background-color: transparent;
 }
 /* banner end */
 /* all-creator starts  */
 .all-creator{
-    background: url(./images/top-wave.png);
+    background: none;
     padding-top: 160px;
     background-repeat: no-repeat;
     background-size: cover;
@@ -312,7 +421,7 @@ position: relative;
 /* Creativity section end */
 /* Price section starts */
 .price{
-    background: url(./images/bottom-wave.png);
+    background: none;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
@@ -364,6 +473,51 @@ position: relative;
 .price-btn a{
     width: 100%;
 }
+.whatsIncluded{
+    background: #ECF6FF;
+}
+.whatsIncludedHeader{
+    display: grid;
+    text-align: center;
+    justify-content: center;
+    padding-top: 40px;
+}
+.includedItemContainer{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 32px;
+    padding-bottom: 20px;
+}
+.includedItem{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 23vw;
+    margin: 0 52px;
+
+}
+@media (max-width: 800px) {
+    .includedItem{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 80vw;
+        margin: 0 52px;
+
+    }
+}
+.includedItemTitle{
+    color: #1679D4;
+    text-align: center;
+    margin: 24px 0;
+}
+.includedItemBody{
+    text-align: center;
+}
 .home-blog-section-title{
     font-size: 1.3em;
     font-weight: bold;
@@ -377,7 +531,7 @@ position: relative;
 }
 /* Price section ends */
 .home-blog-featured{
-    background:white;
+    background:none;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: top;
@@ -385,6 +539,7 @@ position: relative;
     padding-bottom: 40px;
 }
 .home-blog-viewMoreBtn{
+    white-space: nowrap;
     justify-content: end;
     color: var(--cs-primary);
 }
@@ -438,6 +593,10 @@ position: relative;
 }
 .soft-img-box a{
     color: var(--cs-primary);
+}
+.workImage{
+    background-color: #D9D9D9;
+    cursor: pointer;
 }
 /* Software Updates section ends */
 /* connect with section starts */
@@ -540,22 +699,24 @@ position: relative;
  /*-------------------------- home page ends here------------------------------- */
  /*--------------------------  about page start here------------------------------- */
  .about-banner{
-    background: url(./images/about-banner.png);
+    background: none;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
  }
  .about-banner-row {
-    min-height: 640px;
+     margin-top: 100px;
+     padding-top: 100px;
+    min-height: 400px;
  }
  .about-banner-con h1{
-    color: var(--cs-span);
+    color: var(--cs-primary);
  }
  .about-banner-con h4{
     margin: 25px 0;
  }
  .hand-drawn-right p{
-    font-weight: 500;
+    font-weight: 300;
     color: var(--cs-titleblack);
  }
  .animation-community{
@@ -678,7 +839,11 @@ position: relative;
 }
  /*-------------------------- about page ends here------------------------------- */
  /*-------------------------- software page starts here------------------------------- */
- .software-banner h1{
+ .softwareHeader{
+     background-color: transparent;
+ }
+
+.software-banner h1{
     color: var(--cs-titleblack);
  }
  .software-hero {
@@ -692,6 +857,15 @@ position: relative;
  .work{
     background-color: var(--cs-sky);
     padding: 60px 0;
+ }
+ .workTextHead{
+     display: flex;
+     flex-direction: column;
+     text-align: center;
+     align-items: center;
+     width: 80%;
+     margin-left: 10%;
+     margin-right: 10%;
  }
  .work-box{
     border: 2px solid var(--cs-span);
@@ -721,6 +895,25 @@ position: relative;
  .work-box p{
     color: var(--cs-titleblack);
     font-size: 16px;
+ }
+ .work-row{
+     margin-top: 0px;
+     padding: 50px 0;
+ }
+ .watchContainer{
+     background-color: #353535;
+     width: 100vw;
+ }
+ .watchText{
+     color: white;
+     margin-bottom: 20px;
+ }
+ .watchLink{
+     color: #EE6611;
+ }
+ .watchImageContainer{
+     height: 392px;
+     width: 624px;
  }
  .include{
     background: var(--cs-white);
@@ -763,6 +956,7 @@ position: relative;
     display: flex;
     justify-content: center;
     padding: 20px;
+    background: transparent;
 
 }
 .find-form{
@@ -771,7 +965,7 @@ position: relative;
 .find-form form input{    
 padding: 12px 20px;
 margin: 5px 0 20px;
-background: var(--cs-bgwhite);
+background: none;
 border: 2px solid var(--cs-titleblack);
 border-radius: 4px;}
 .find-form form input ::placeholder{
@@ -890,6 +1084,10 @@ color: #7B7B7B;
 }
 
 .blog-image{
+    width: 300px;
+    height: 160px;
+    object-fit: cover;
+    object-position: 50% 50%;
     transition:  0.2s ;
 }
 .postContainer:hover .blog-image{
@@ -917,16 +1115,24 @@ color: #7B7B7B;
     font-weight: 600;
     line-height: 40px;
 }
-.blog-page-tag{
+
+.blog-page-tag:nth-child(odd){
     color:white;
     background-color: #EE6611;
     padding: 2px 6px;
-    margin: 2px 7px;
+    margin: 5px 7px 0px 0px;
+    border-radius: 10px;
+}
+.blog-page-tag:nth-child(even){
+    color:white;
+    background-color: #1679D4;
+    padding: 2px 6px;
+    margin: 5px 7px 0px 0px;
     border-radius: 10px;
 }
 .tag-group{
     display: flex;
-    padding: 15px 0px;
+    padding: 15px 10px;
 }
 .blog-page-info{
     display: flex;
@@ -944,4 +1150,25 @@ color: #7B7B7B;
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+}
+.discordContainer{
+    background-color: #353535;
+    padding-bottom: 30px;
+}
+.discordText{
+    padding-top: 40px;
+    padding-left: 5%;
+    padding-bottom: 25px;
+}
+.discordTitle{
+    color: white;
+}
+.discordBottomText{
+    color: #EE6611;
+}
+.discordWidget{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }

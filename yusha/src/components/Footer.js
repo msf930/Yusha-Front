@@ -55,7 +55,7 @@ export default function Footer(){
                                     Software
                                 </li>
                                 <li>
-                                    <HashLink to="/download#top">Download</HashLink>
+                                    <HashLink to="/software#softwareUpdate">Updates</HashLink>
                                 </li>
                             </ul>
                         </div>
@@ -69,9 +69,7 @@ export default function Footer(){
                                 <li>
                                     <HashLink to="/about#top">About</HashLink>
                                 </li>
-                                <li>
-                                    <HashLink to="/blog#top">Blog</HashLink>
-                                </li>
+
                             </ul>
                         </div>
                     </div>
@@ -82,8 +80,7 @@ export default function Footer(){
                                     Resources
                                 </li>
                                 <li>
-                                    {/*<a href="software.html#softwareUpdate">Updates</a>*/}
-                                    <HashLink to="/software#softwareUpdate">Updates</HashLink>
+                                    <HashLink to="/blog#top">Blog</HashLink>
                                 </li>
                                 <li>
                                     <HashLink to="/support#top">Contact Us</HashLink>

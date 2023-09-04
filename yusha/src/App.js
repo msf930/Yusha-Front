@@ -23,8 +23,8 @@ function App() {
               <Route path="download" element={<Download />} />
               <Route path="blog" element={<Blog />} />
               <Route path="support" element={<Support />} />
-              <Route path="blog/:id" element={<PostPage />} />
-              <Route path="homePost/:id" element={<HomePostPage />} />
+              <Route path="blog/:slug" element={<PostPage />} />
+              <Route path="homePost/:slug" element={<HomePostPage />} />
           </Route>
           <Route path="/" element={<Footer />}>
               <Route path="about" element={<About />} />

@@ -1,13 +1,15 @@
 import Footer from "../components/Footer";
 import NewsletterForm from "../components/NewsletterForm";
 import BrevoForm from "../components/BrevoForm";
+import PricingBrevoForm from "../components/PricingBrevoForm";
+import SoftwareHeaderBrevoForm from "../components/SoftwareHeaderBrevoForm";
 
 export default function Software(){
     return(
-        <div>
-        <body>
+        <div >
+        <body className="gradientBG">
         {/* header starts */}
-        <header>
+        <header className="softwareHeader">
 
 
             {/* inner hero start */}
@@ -15,14 +17,7 @@ export default function Software(){
                 <div className="container">
                     <div className="row inner-hero-row align-items-center">
                         <div className="col-lg-6 order-lg-1 order-2">
-                            <div className="inner-hero-content">
-                                <h1>Yusha's Vision</h1>
-                                <p className="mb-4">Our goal is to simplify the early stages of the animation process giving creators a more
-                                    fleshed out template to start from.</p>
-                                <div className="banner-btnbox soft-btnbox">
-                                    <a href="download#pricing" className="btn cs-btn">Get Started</a>
-                                </div>
-                            </div>
+                            <SoftwareHeaderBrevoForm/>
                         </div>
                         <div className="col-lg-6 order-lg-2 order-1">
                             <div className="inner-hero-img">
@@ -59,9 +54,9 @@ export default function Software(){
         <section className="work">
             <div className="container">
                 <div className="row">
-                    <div className="col-md-12 text-center">
+                    <div className="workTextHead">
                         <h2>How Does it Work?</h2>
-                        <h4>Yusha can be broken into 3 main steps:</h4>
+                        <h4>Our goal is to simplify the early stages of the animation process giving creators a more fleshed out template to start from.</h4>
                     </div>
                 </div>
                 <div className="row">
@@ -81,8 +76,7 @@ export default function Software(){
                                 <h1>2</h1>
                             </div>
                             <h4>Sketch initial and end pose</h4>
-                            <p>Sketch out stick figures or sketches of the beginning and ending scene and tell us how many frames you
-                                need your scene to be. So we know what you want the scene to look like.</p>
+                            <p>So that we know what you want the scene to look like, sketch out stick figures or sketches of the initial and end scene as well as how many frames you need your scene to be.</p>
                         </div>
                     </div>
                     <div className=" col-md-6 col-lg-4 m-10">
@@ -98,6 +92,53 @@ export default function Software(){
                 </div>
             </div>
         </section>
+        <section>
+            <div className="watchContainer">
+            <div className="container ">
+                <div className="row work-row align-items-center">
+                    <div className="col-lg-6 order-lg-1 order-2">
+                        <div className="watchTextContainer ">
+                            <h2 className="watchText">Watch Yusha at Work!</h2>
+                            <h4 className="watchText">Here is a quick tutorial of  how to use Yusha’s software.</h4>
+                            <a href="https://www.youtube.com/@yusha-ai" target="_blank" className="watchLink">Watch video on YouTube <span><i className="fa-sharp fa-solid fa-arrow-right"></i></span></a>
+                        </div>
+                    </div>
+                    <div className="col-lg-6 order-lg-2 order-1">
+                        <div className="inner-hero-img">
+                            <div className="creativity-right f-play-video mb-4 mb-lg-0">
+                                <img src="images/index-banner.png" className=" play-button img-fluid workImage"
+                                     data-bs-toggle="modal"
+                                     data-bs-target="#exampleModal" alt=""/>
+                                {/* Modal */}
+                                <div className="modal fade" id="exampleModal" tabIndex="-1"
+                                     aria-labelledby="exampleModalLabel"
+                                     aria-hidden="true">
+                                    <div className="modal-dialog modal-dialog-centered">
+                                        <div className="modal-content">
+                                            <div className="modal-body">
+                                                <div className="work_video">
+                                                    <div className="embed-responsive embed-responsive-16by9">
+                                                        <iframe className="embed-responsive-item" width="100%"
+                                                                height="600"
+                                                                src="https://www.youtube.com/embed/NP1kHFRVln8"
+                                                                allowFullScreen></iframe>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {/* Modal */}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+        </section>
+        <div id="signUp">
+            <PricingBrevoForm/>
+        </div>
         {/* how does it work section starts  */}
         {/* Creativity section starts */}
         {/* <section className="Creativity">
@@ -138,50 +179,73 @@ export default function Software(){
             </section> */}
         {/* Creativity section ends */}
         {/* what is include starts  */}
-        <section className="work include">
-            <div className="container">
-                <div className="row">
-                    <div className="col-md-12 text-center">
-                        <h2>What’s Included?</h2>
-                        <h4>Here is what you can expect when you download Yusha.</h4>
-                    </div>
+        {/*<section className="work include">*/}
+        {/*    <div className="container">*/}
+        {/*        <div className="row">*/}
+        {/*            <div className="col-md-12 text-center">*/}
+        {/*                <h2>What’s Included?</h2>*/}
+        {/*                <h4>Here is what you can expect when you download Yusha.</h4>*/}
+        {/*            </div>*/}
+        {/*        </div>*/}
+        {/*        <div className="row">*/}
+        {/*            <div className=" col-md-6 col-lg-4 m-10">*/}
+        {/*                <div className="work-box include-box">*/}
+        {/*                    <div className="include-icon speed-icon">*/}
+        {/*                        <img src="images/speed.png" className="img-fluid" alt=""/>*/}
+        {/*                    </div>*/}
+        {/*                    <h4>Animation tools for speed</h4>*/}
+        {/*                    <p>Provide us your character sheets. We can help draw your character doing their scene ready to be edited so*/}
+        {/*                        you can focus on editing the flow of your work.</p>*/}
+        {/*                </div>*/}
+        {/*            </div>*/}
+        {/*            <div className=" col-md-6 col-lg-4 m-10">*/}
+        {/*                <div className="work-box include-box">*/}
+        {/*                    <div className="include-icon">*/}
+        {/*                        <img src="images/support.png" className="img-fluid" alt=""/>*/}
+        {/*                    </div>*/}
+        {/*                    <h4>Familiar platform support</h4>*/}
+        {/*                    <p>Yusha’s animation platform is powered by Blender, so users have access to the animations tools and layout*/}
+        {/*                        with an immense amount of support.</p>*/}
+        {/*                </div>*/}
+        {/*            </div>*/}
+        {/*            <div className=" col-md-6 col-lg-4 m-10">*/}
+        {/*                <div className="work-box include-box">*/}
+        {/*                    <div className="include-icon">*/}
+        {/*                        <img src="images/helping.png" className="img-fluid" alt=""/>*/}
+        {/*                    </div>*/}
+        {/*                    <h4>A helping hand from Yusha</h4>*/}
+        {/*                    <p>The Yusha team is dedicated to continuously improving the product. Yusha is working to fix your issues*/}
+        {/*                        and help debug with you.</p>*/}
+        {/*                </div>*/}
+        {/*            </div>*/}
+        {/*        </div>*/}
+        {/*    </div>*/}
+        {/*</section>*/}
+        {/* what is include starts  */}
+        {/* Software Updates section starts */}
+        <section className="whatsIncluded">
+            <div className="whatsIncludedHeader">
+                <h2>What's Included?</h2>
+                <h4 className="m-10">Here is what you can expect when you download Yusha.</h4>
+            </div>
+            <div className="includedItemContainer">
+                <div className="includedItem">
+                    <img src="images/yushaFast.png"/>
+                    <h4 className="includedItemTitle">Animation tools for speed</h4>
+                    <p className="includedItemBody">With Yusha's tools, your animation process is faster and more efficient. Yusha assists with creating assets and frames needed in your scenes.</p>
                 </div>
-                <div className="row">
-                    <div className=" col-md-6 col-lg-4 m-10">
-                        <div className="work-box include-box">
-                            <div className="include-icon speed-icon">
-                                <img src="images/speed.png" className="img-fluid" alt=""/>
-                            </div>
-                            <h4>Animation tools for speed</h4>
-                            <p>Provide us your character sheets. We can help draw your character doing their scene ready to be edited so
-                                you can focus on editing the flow of your work.</p>
-                        </div>
-                    </div>
-                    <div className=" col-md-6 col-lg-4 m-10">
-                        <div className="work-box include-box">
-                            <div className="include-icon">
-                                <img src="images/support.png" className="img-fluid" alt=""/>
-                            </div>
-                            <h4>Familiar platform support</h4>
-                            <p>Yusha’s animation platform is powered by Blender, so users have access to the animations tools and layout
-                                with an immense amount of support.</p>
-                        </div>
-                    </div>
-                    <div className=" col-md-6 col-lg-4 m-10">
-                        <div className="work-box include-box">
-                            <div className="include-icon">
-                                <img src="images/helping.png" className="img-fluid" alt=""/>
-                            </div>
-                            <h4>A helping hand from Yusha</h4>
-                            <p>The Yusha team is dedicated to continuously improving the product. Yusha is working to fix your issues
-                                and help debug with you.</p>
-                        </div>
-                    </div>
+                <div className="includedItem">
+                    <img src="images/yushaHearts.png"/>
+                    <h4 className="includedItemTitle">Familiar platform support</h4>
+                    <p className="includedItemBody">Yusha’s animation platform is powered by Godot, so users have access to the animations tools and layout with an immense amount of support.</p>
+                </div>
+                <div className="includedItem">
+                    <img src="images/yushaHelp.png"/>
+                    <h4 className="includedItemTitle">A helping hand from Yusha</h4>
+                    <p className="includedItemBody">The Yusha team is dedicated to continuously improving the product. Yusha is working to fix your issues and help debug with you.</p>
                 </div>
             </div>
         </section>
-        {/* what is include starts  */}
-        {/* Software Updates section starts */}
         <section className="Software soft-updt" id="softwareUpdate">
             <div className="container">
                 <div className="row">
@@ -270,7 +334,6 @@ export default function Software(){
         {/*</section>*/}
 
         </body>
-        <BrevoForm/>
         <Footer />
     </div>
     );

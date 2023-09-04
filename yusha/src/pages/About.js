@@ -1,17 +1,27 @@
 import Footer from "../components/Footer";
 import NewsletterForm from "../components/NewsletterForm";
 import BrevoForm from "../components/BrevoForm";
+import React from "react";
+import { HashLink , NavHashLink } from 'react-router-hash-link';
 
 export default function About() {
     return(
+    <div className="gradientBG">
     <div id="top">
         <header className="about-banner">
         <div className="container ">
             <div className="row about-banner-row justify-content-center align-items-center">
                 <div className="col-lg-12 text-center about-banner-con  banner_content">
-                    <h1>Yusha’s Storyboard !</h1>
-                    <h4>Our company goals, values, and who we are :)</h4>
+                    <h1>Everyone has a story to tell.</h1>
+                    <h4>Our company goals, values, and who we are.</h4>
+                    <div className="flex-row">
+                        <div className="banner-btnbox soft-btnbox">
+                            <HashLink to="#signUp" className="btn cs-btn">Sign Up</HashLink>
+                            <a href="support" className="btn cs-btn-about">Contact Us</a>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
         </header>
@@ -30,17 +40,16 @@ export default function About() {
                     <div className="hand-drawn-right">
                         <h2>We want to see a new wave of animators!</h2>
 
-                        <p>We understand the pain and beauty of making animation, but for the average person making your own show is
-                            nearly impossible. </p>
-                        <p>Cost, time, and effort is exponential! Yusha will make it more convenient for animators or people to tell
-                            their story through animation without the major barrier of entry.</p>
+                        <p>We understand the pain and beauty of making animations, but for the average person making your own show is nearly impossible.</p>
+                        <p>Cost, time, and effort are exponential!</p>
+                        <p>Yusha will make it more convenient for animators and people to tell their story through animation without the major barrier of entry..</p>
 
 
                     </div>
                 </div>
                 <div className="col-lg-6">
-                    <div className="hand-drawn-lef people">
-                        <img src="images/people-are-at.png" className="img-fluid" alt=""/>
+                    <div className="hand-drawn-left">
+                        <img src="images/about1.png" className="img-fluid" alt=""/>
                     </div>
                 </div>
             </div>
@@ -49,21 +58,19 @@ export default function About() {
             <div className="row align-items-center">
                 <div className="col-lg-6">
                     <div className="hand-drawn-left boy">
-                        <img src="images/boy-animation.jpeg" className="img-fluid" alt=""/>
+                        <img src="images/about2.png" className="img-fluid" alt=""/>
                     </div>
                 </div>
                 <div className="col-lg-6">
                     <div className="hand-drawn-right">
                         <h2>
-                            We want an alternative to AI art
+                            An Alternative to AI art
                         </h2>
                         <p>
-                            Seeing the rise of AI art and how it was taking other creator's work
-                            to produce images, we knew eventually they would try to make AI
-                            animations. To support an industry we love our goal is to expidite the
-                            process, but ultimately leaving it to the creators to decide how they
-                            want their creation to look.
-                        </p>
+                            Seeing the rise of AI art and how it was taking other creator's work to produce images, we knew eventually they would try to make AI animations.</p>
+
+                        <p>To support an industry we love our goal is to expedite the process and ultimately leave it to the creators to decide how they want their creation to look.</p>
+
                     </div>
                 </div>
             </div>
@@ -79,7 +86,7 @@ export default function About() {
                 <div className="col-md-12 text-center">
                     <h2>Our Mission</h2>
                     <div className="mission-img m-auto">
-                        <img src="images/people-are-at.png" className="img-fluid" alt=""/>
+                        <img src="images/YushaRaisedHand.png" className="img-fluid" alt=""/>
                     </div>
                     <h4>
                         To remove the barrier of entry into the animation space to allow individual creators to tell their otherwise
@@ -91,7 +98,7 @@ export default function About() {
     </section>
     {/* Our Mission section ends */}
     {/* team section starts */}
-    <section className="team">
+    <section className="team" >
         <div className="container">
             <div className="row">
                 <div className="col-md-12 text-center">
@@ -114,8 +121,8 @@ export default function About() {
                             <p>
                                 Animations are life. Life is an animation.
                             </p>
-                            <a href="https://www.linkedin.com/in/shamaldias/">
-                                <img src="images/icon_linkedin.png" className="icon img-fluid" alt=""/>
+                            <a href="https://www.linkedin.com/in/shamaldias/" target="_blank">
+                                <img src="images/icon_linkedin.png" className="icon img-fluid" alt="" />
                             </a>
                         </div>
                     </div>
@@ -135,17 +142,20 @@ export default function About() {
                                 Making animation easier since 2023. Let's animate together!
                             </p>
                             <div>
-                                <a href="https://discord.gg/vEUsd6WJRj">
-                                    <img src="images/icon_discord.png" className="icon img-fluid" alt=""/>
+                                <a href="https://discord.gg/vEUsd6WJRj" target="_blank">
+                                    <img src="images/icon_discord.png" className="icon img-fluid"  alt=""/>
                                 </a>
-                                <a href="https://www.linkedin.com/company/yusha-ai/about/">
+                                <a href="https://www.linkedin.com/company/yusha-ai/about/" target="_blank">
                                     <img src="images/icon_linkedin.png" className="icon img-fluid" alt=""/>
                                 </a>
-                                <a href="https://www.instagram.com/yusha.animation/">
+                                <a href="https://www.instagram.com/yusha.animation/" target="_blank">
                                     <img src="images/icon_instagram.png" className="icon img-fluid" alt=""/>
                                 </a>
-                                <a href="https://www.tiktok.com/@animate_with_yusha?lang=en">
+                                <a href="https://www.tiktok.com/@animate_with_yusha?lang=en" target="_blank">
                                     <img src="images/icon_tiktok.png" className="icon img-fluid" alt=""/>
+                                </a>
+                                <a href="https://www.youtube.com/@yusha-ai" target="_blank">
+                                    <img src="images/icon_youtube.png" className="icon img-fluid" alt=""/>
                                 </a>
                             </div>
                         </div>
@@ -165,7 +175,7 @@ export default function About() {
                             <p>
                                 So excited for the world to experience what we’re making!
                             </p>
-                            <a href="https://www.linkedin.com/in/rmaule">
+                            <a href="https://www.linkedin.com/in/rmaule" target="_blank">
                                 <img src="images/icon_linkedin.png" className="icon img-fluid" alt=""/>
                             </a>
                         </div>
@@ -185,7 +195,7 @@ export default function About() {
                             <p>
                                 As a creative, nothing beats being able to turn your ideas into reality.
                             </p>
-                            <a href="https://www.linkedin.com/in/florenlee880">
+                            <a href="https://www.linkedin.com/in/florenlee880" target="_blank">
                                 <img src="images/icon_linkedin.png" className="icon img-fluid" alt=""/>
                             </a>
                         </div>
@@ -206,7 +216,7 @@ export default function About() {
                             <p>
                                 Animations are love. A passionate medium to evoke one's story.
                             </p>
-                            <a href="https://www.linkedin.com/in/joseph-baba-b41b31132/">
+                            <a href="https://www.linkedin.com/in/joseph-baba-b41b31132/" target="_blank">
                                 <img src="images/icon_linkedin.png" className="icon img-fluid" alt=""/>
                             </a>
                         </div>
@@ -226,7 +236,7 @@ export default function About() {
                             <p>
                                 If you are what you animate then I only want to animate the good stuff.
                             </p>
-                            <a href="https://www.linkedin.com/in/johnnie-baba-1b6b45132/">
+                            <a href="https://www.linkedin.com/in/johnnie-baba-1b6b45132/" target="_blank">
                                 <img src="images/icon_linkedin.png" className="icon img-fluid" alt=""/>
                             </a>
                         </div>
@@ -247,7 +257,7 @@ export default function About() {
                             <p>
                                 So passionate about animations that I help market Yusha to you!
                             </p>
-                            <a href="https://www.linkedin.com/in/haleywhittington/">
+                            <a href="https://www.linkedin.com/in/haleywhittington/" target="_blank">
                                 <img src="images/icon_linkedin.png" className="icon img-fluid" alt=""/>
                             </a>
                         </div>
@@ -267,7 +277,7 @@ export default function About() {
                             <p>
                                Animation is like a box of chocolates.  It's sweet.
                             </p>
-                            <a href="https://www.linkedin.com/in/matt-folsom/">
+                            <a href="https://www.linkedin.com/in/matt-folsom/" target="_blank">
                                 <img src="images/icon_linkedin.png" className="icon img-fluid" alt=""/>
                             </a>
                         </div>
@@ -311,10 +321,12 @@ export default function About() {
 
     {/*    </div>*/}
     {/*</section>*/}
-    <BrevoForm />
+    <div id="signUp">
+        <BrevoForm />
+    </div>
     <Footer />
     </div>
-
+    </div>
 );
 }
 

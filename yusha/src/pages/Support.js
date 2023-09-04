@@ -1,11 +1,14 @@
 import Footer from "../components/Footer";
+import {HashLink} from "react-router-hash-link";
+import React from "react";
+import BrevoForm from "../components/BrevoForm";
 
 export default function Support(){
     return(
-        <div id="top">
-        <body>
+        <div id="top" >
+        <body >
         {/* header starts */}
-        <header>
+        <header className="gradientBG">
 
 
             {/* inner hero start */}
@@ -15,8 +18,9 @@ export default function Support(){
                         <div className="col-lg-6 order-lg-1 order-2">
                             <div className="inner-hero-content">
                                 <h1>We are here if you need help!</h1>
-                                <p>With everything new questions are raised ask us any questions you may have. We want
+                                <p>With everything new, questions are raised. Ask us any questions you may have. We want
                                     to help!</p>
+                                <HashLink to="#contactForm" className="btn cs-btn">Contact Us</HashLink>
                             </div>
                         </div>
                         <div className="col-lg-6 order-lg-2 order-1">
@@ -29,6 +33,62 @@ export default function Support(){
             </div>
             {/* inner hero end */}
         </header>
+        <div className="discordContainer">
+            <div className="discordText">
+                <h2 className='discordTitle'>Yusha on Discord!</h2>
+                <h4 className="discordBottomText">Join our commuinity to stay updated</h4>
+            </div>
+            <div className="discordWidget">
+                <iframe
+                    src="https://e.widgetbot.io/channels/1061838271291859045/1061978127720525955"
+                    allow="clipboard-write; fullscreen"
+                    height="700"
+                    width="90%"
+                    style={{borderRadius:8, height: "80vh",}}
+                >
+                </iframe>
+            </div>
+        </div>
+
+        <section className="can-find gradientBG" id="contactForm">
+            <div className="find-container" >
+                <div >
+                    <div >
+                        <h2>Can’t find what you’re looking for?</h2>
+                        <h4>Drop us a message! We are more than happy to assist you.</h4>
+                        <div className="find-form">
+                            <form target="_blank" action="https://formsubmit.co/1d89877885f1f03e31955fce4be144db"
+                                  method="POST">
+                                <div className="row">
+                                    <div className="col-md-6">
+                                        <label htmlFor="">Enter your name.</label>
+                                        <input type="text" name="name" placeholder="First & Last Name"
+                                               className="form-control"/>
+                                        <label htmlFor="">Enter your phone number.</label>
+                                        <input type="text" name="phone" placeholder="Phone Number"
+                                               className="form-control"/>
+                                    </div>
+                                    <div className="col-md-6">
+                                        <label htmlFor="">Enter your email.</label>
+                                        <input type="email" name="email" placeholder="janedoe@gmail.com"
+                                               className="form-control"/>
+                                        <label htmlFor="">What’s the subject?</label>
+                                        <input type="text" name="subject" placeholder="Ex. I want to help!"
+                                               className="form-control"/>
+                                    </div>
+                                    <div className="col-md-12">
+                                        <label htmlFor="">Description</label>
+                                        <textarea name="desc" id="" cols="30" placeholder="Ex. I want to share my art."
+                                                  rows="10" className="form-control"></textarea>
+                                        <input type="submit" className="submit cs-btn" value="Send Message"/>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         {/* banner end */}
         {/* connect with section starts */}
         <section className="connect-us">
@@ -66,47 +126,12 @@ export default function Support(){
         </section>
         {/* connect with section ends */}
         {/* cant't find sectin start here */}
-        <section className="can-find">
-            <div className="find-container">
-                <div >
-                    <div >
-                        <h2>Can’t find what you’re looking for?</h2>
-                        <h4>Drop us a message! We are more than happy to assist you.</h4>
-                        <div className="find-form">
-                            <form target="_blank" action="https://formsubmit.co/1d89877885f1f03e31955fce4be144db"
-                                  method="POST">
-                                <div className="row">
-                                    <div className="col-md-6">
-                                        <label htmlFor="">Enter your name.</label>
-                                        <input type="text" name="name" placeholder="First & Last Name"
-                                               className="form-control"/>
-                                            <label htmlFor="">Enter your phone number.</label>
-                                            <input type="text" name="phone" placeholder="Phone Number"
-                                                   className="form-control"/>
-                                    </div>
-                                    <div className="col-md-6">
-                                        <label htmlFor="">Enter your email.</label>
-                                        <input type="email" name="email" placeholder="janedoe@gmail.com"
-                                               className="form-control"/>
-                                            <label htmlFor="">What’s the subject?</label>
-                                            <input type="text" name="subject" placeholder="Ex. I want to help!"
-                                                   className="form-control"/>
-                                    </div>
-                                    <div className="col-md-12">
-                                        <label htmlFor="">Description</label>
-                                        <textarea name="desc" id="" cols="30" placeholder="Ex. I want to share my art."
-                                                  rows="10" className="form-control"></textarea>
-                                        <input type="submit" className="submit cs-btn" value="Send Message"/>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+
         {/* cant't find sectin end here */}
         {/* footer start here */}
+        <div id="signUp">
+            <BrevoForm/>
+        </div>
        <Footer />
         {/* footer end here */}
 
