@@ -3,6 +3,7 @@ import NewsletterForm from "../components/NewsletterForm";
 import BrevoForm from "../components/BrevoForm";
 import React from "react";
 import { HashLink , NavHashLink } from 'react-router-hash-link';
+import MultiLingualContent from "../components/MultilingualContent/multilingualContent";
 
 export default function About() {
     return(
@@ -12,12 +13,12 @@ export default function About() {
         <div className="container ">
             <div className="row about-banner-row justify-content-center align-items-center">
                 <div className="col-lg-12 text-center about-banner-con  banner_content">
-                    <h1>Everyone has a story to tell.</h1>
-                    <h4>Our company goals, values, and who we are.</h4>
+                    <h1><MultiLingualContent contentID="about_hero_title" /></h1>
+                    <h4><MultiLingualContent contentID="about_hero_sub" /></h4>
                     <div className="flex-row">
                         <div className="banner-btnbox soft-btnbox">
-                            <HashLink to="#signUp" className="btn cs-btn">Sign Up</HashLink>
-                            <a href="support" className="btn cs-btn-about">Contact Us</a>
+                            <HashLink to="#signUp" className="btn cs-btn"><MultiLingualContent contentID="about_hero_signUpBtn" /></HashLink>
+                            <a href="support" className="btn cs-btn-about"><MultiLingualContent contentID="about_hero_contactBtn" /></a>
                         </div>
                     </div>
                 </div>
@@ -38,11 +39,11 @@ export default function About() {
                 {/* mobile responsive part end*/}
                 <div className="col-lg-6">
                     <div className="hand-drawn-right">
-                        <h2>We want to see a new wave of animators!</h2>
+                        <h2><MultiLingualContent contentID="about_section1_title" /></h2>
 
-                        <p>We understand the pain and beauty of making animations, but for the average person making your own show is nearly impossible.</p>
-                        <p>Cost, time, and effort are exponential!</p>
-                        <p>Yusha will make it more convenient for animators and people to tell their story through animation without the major barrier of entry..</p>
+                        <p><MultiLingualContent contentID="about_section1_body1" /></p>
+                        <p><MultiLingualContent contentID="about_section1_body2" /></p>
+                        <p><MultiLingualContent contentID="about_section1_body3" /></p>
 
 
                     </div>
@@ -64,12 +65,12 @@ export default function About() {
                 <div className="col-lg-6">
                     <div className="hand-drawn-right">
                         <h2>
-                            An Alternative to AI art
+                            <MultiLingualContent contentID="about_section2_title" />
                         </h2>
                         <p>
-                            Seeing the rise of AI art and how it was taking other creator's work to produce images, we knew eventually they would try to make AI animations.</p>
+                            <MultiLingualContent contentID="about_section2_body1" /></p>
 
-                        <p>To support an industry we love our goal is to expedite the process and ultimately leave it to the creators to decide how they want their creation to look.</p>
+                        <p><MultiLingualContent contentID="about_section2_body2" /></p>
 
                     </div>
                 </div>
@@ -84,13 +85,12 @@ export default function About() {
         <div className="container">
             <div className="row">
                 <div className="col-md-12 text-center">
-                    <h2>Our Mission</h2>
+                    <h2><MultiLingualContent contentID="about_mission_title" /></h2>
                     <div className="mission-img m-auto">
                         <img src="images/YushaRaisedHand.png" className="img-fluid" alt=""/>
                     </div>
                     <h4>
-                        To remove the barrier of entry into the animation space to allow individual creators to tell their otherwise
-                        unheard stories.
+                        <MultiLingualContent contentID="about_mission_sub" />
                     </h4>
                 </div>
             </div>
@@ -102,8 +102,8 @@ export default function About() {
         <div className="container">
             <div className="row">
                 <div className="col-md-12 text-center">
-                    <h2>Small But <span>Mighty</span> Team</h2>
-                    <h4>This is real, this is us. It’s exactly who we’re supposed to be.</h4>
+                    <h2><MultiLingualContent contentID="about_team_title1" /> <span><MultiLingualContent contentID="about_team_title2" /></span> <MultiLingualContent contentID="about_team_title3" /></h2>
+                    <h4><MultiLingualContent contentID="about_team_sub" /></h4>
                 </div>
             </div>
             <div className="row">
@@ -115,11 +115,11 @@ export default function About() {
                         </div>
                         <div className="team-text-box">
                             <h3>
-                                Shamal D. | <span>He/Him</span>
+                                <MultiLingualContent contentID="about_team_shamal_name" /> <span><MultiLingualContent contentID="about_team_shamal_pro" /></span>
                             </h3>
-                            <h5>Founder/Lead Developer</h5>
+                            <h5><MultiLingualContent contentID="about_team_shamal_title" /></h5>
                             <p>
-                                Animations are life. Life is an animation.
+                                <MultiLingualContent contentID="about_team_shamal_body" />
                             </p>
                             <a href="https://www.linkedin.com/in/shamaldias/" target="_blank">
                                 <img src="images/icon_linkedin.png" className="icon img-fluid" alt="" />
@@ -135,11 +135,11 @@ export default function About() {
                         </div>
                         <div className="team-text-box">
                             <h3>
-                                Yusha | <span>Yu/Sha</span>
+                                <MultiLingualContent contentID="about_team_yusha_name" /> <span><MultiLingualContent contentID="about_team_yusha_pro" /></span>
                             </h3>
-                            <h5>Master Animator</h5>
+                            <h5><MultiLingualContent contentID="about_team_yusha_title" /></h5>
                             <p>
-                                Making animation easier since 2023. Let's animate together!
+                                <MultiLingualContent contentID="about_team_yusha_body" />
                             </p>
                             <div>
                                 <a href="https://discord.gg/vEUsd6WJRj" target="_blank">
@@ -161,26 +161,26 @@ export default function About() {
                         </div>
                     </div>
                 </div>
-                <div className="col-md-6 col-lg-4 m-10">
-                    <div className="team-box">
-                        <div className="image-container m-auto">
-                            <img src="images/Ryan_M.png" className="imgBtm img-fluid team-img" alt=""/>
-                            <img src="images/Ryan_Hover.png" className="imgTop team-img img-fluid" alt=""/>
-                        </div>
-                        <div className="team-text-box">
-                            <h3>
-                                Ryan M. | <span>He/Him</span>
-                            </h3>
-                            <h5>CMO</h5>
-                            <p>
-                                So excited for the world to experience what we’re making!
-                            </p>
-                            <a href="https://www.linkedin.com/in/rmaule" target="_blank">
-                                <img src="images/icon_linkedin.png" className="icon img-fluid" alt=""/>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                {/*<div className="col-md-6 col-lg-4 m-10">*/}
+                {/*    <div className="team-box">*/}
+                {/*        <div className="image-container m-auto">*/}
+                {/*            <img src="images/Ryan_M.png" className="imgBtm img-fluid team-img" alt=""/>*/}
+                {/*            <img src="images/Ryan_Hover.png" className="imgTop team-img img-fluid" alt=""/>*/}
+                {/*        </div>*/}
+                {/*        <div className="team-text-box">*/}
+                {/*            <h3>*/}
+                {/*                Ryan M. | <span>He/Him</span>*/}
+                {/*            </h3>*/}
+                {/*            <h5>CMO</h5>*/}
+                {/*            <p>*/}
+                {/*                So excited for the world to experience what we’re making!*/}
+                {/*            </p>*/}
+                {/*            <a href="https://www.linkedin.com/in/rmaule" target="_blank">*/}
+                {/*                <img src="images/icon_linkedin.png" className="icon img-fluid" alt=""/>*/}
+                {/*            </a>*/}
+                {/*        </div>*/}
+                {/*    </div>*/}
+                {/*</div>*/}
                 <div className="col-md-6 col-lg-4 m-10">
                     <div className="team-box">
                         <div className="image-container m-auto">
@@ -189,11 +189,11 @@ export default function About() {
                         </div>
                         <div className="team-text-box">
                             <h3>
-                                Floren L. | | <span>She/Her</span>
+                                <MultiLingualContent contentID="about_team_floren_name" /> <span><MultiLingualContent contentID="about_team_floren_pro" /></span>
                             </h3>
-                            <h5>Lead UX Developer</h5>
+                            <h5><MultiLingualContent contentID="about_team_floren_title" /></h5>
                             <p>
-                                As a creative, nothing beats being able to turn your ideas into reality.
+                                <MultiLingualContent contentID="about_team_floren_body" />
                             </p>
                             <a href="https://www.linkedin.com/in/florenlee880" target="_blank">
                                 <img src="images/icon_linkedin.png" className="icon img-fluid" alt=""/>
@@ -210,11 +210,11 @@ export default function About() {
                         </div>
                         <div className="team-text-box">
                             <h3>
-                                Joseph B. | <span>He/Him</span>
+                                <MultiLingualContent contentID="about_team_joseph_name" /> <span><MultiLingualContent contentID="about_team_joseph_pro" /></span>
                             </h3>
-                            <h5>Community Manager</h5>
+                            <h5><MultiLingualContent contentID="about_team_joseph_title" /></h5>
                             <p>
-                                Animations are love. A passionate medium to evoke one's story.
+                                <MultiLingualContent contentID="about_team_joseph_body" />
                             </p>
                             <a href="https://www.linkedin.com/in/joseph-baba-b41b31132/" target="_blank">
                                 <img src="images/icon_linkedin.png" className="icon img-fluid" alt=""/>
@@ -230,11 +230,11 @@ export default function About() {
                         </div>
                         <div className="team-text-box">
                             <h3>
-                                Johnnie B. | <span>He/Him</span>
+                                <MultiLingualContent contentID="about_team_johnnie_name" /> <span><MultiLingualContent contentID="about_team_johnnie_pro" /></span>
                             </h3>
-                            <h5>Content Marketing</h5>
+                            <h5><MultiLingualContent contentID="about_team_johnnie_title" /></h5>
                             <p>
-                                If you are what you animate then I only want to animate the good stuff.
+                                <MultiLingualContent contentID="about_team_johnnie_body" />
                             </p>
                             <a href="https://www.linkedin.com/in/johnnie-baba-1b6b45132/" target="_blank">
                                 <img src="images/icon_linkedin.png" className="icon img-fluid" alt=""/>
@@ -251,11 +251,11 @@ export default function About() {
                         </div>
                         <div className="team-text-box">
                             <h3>
-                                Haley W. | <span>She/Her</span>
+                                <MultiLingualContent contentID="about_team_haley_name" /> <span><MultiLingualContent contentID="about_team_haley_pro" /></span>
                             </h3>
-                            <h5>Digital Marketing Strategist</h5>
+                            <h5><MultiLingualContent contentID="about_team_haley_title" /></h5>
                             <p>
-                                So passionate about animations that I help market Yusha to you!
+                                <MultiLingualContent contentID="about_team_haley_body" />
                             </p>
                             <a href="https://www.linkedin.com/in/haleywhittington/" target="_blank">
                                 <img src="images/icon_linkedin.png" className="icon img-fluid" alt=""/>
@@ -271,11 +271,11 @@ export default function About() {
                         </div>
                         <div className="team-text-box">
                             <h3>
-                                Matt F. | <span>He/Him</span>
+                                <MultiLingualContent contentID="about_team_matt_name" /> <span><MultiLingualContent contentID="about_team_matt_pro" /></span>
                             </h3>
-                            <h5>Fullstack Web Developer</h5>
+                            <h5><MultiLingualContent contentID="about_team_matt_title" /></h5>
                             <p>
-                               Animation is like a box of chocolates.  It's sweet.
+                                <MultiLingualContent contentID="about_team_matt_body" />
                             </p>
                             <a href="https://www.linkedin.com/in/matt-folsom/" target="_blank">
                                 <img src="images/icon_linkedin.png" className="icon img-fluid" alt=""/>

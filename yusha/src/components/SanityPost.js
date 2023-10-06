@@ -15,7 +15,7 @@ export default function SanityPost({ post }){
                             <label className="blog-tag">{tag}</label>
                         ))}
                     <Link to={`/blog/${post?.slug.current}`}>
-                        <h5 className="text-black">{post.title}</h5>
+                        <h5 className="blog-title">{post.title}</h5>
                     </Link>
                 </div>
             </div>

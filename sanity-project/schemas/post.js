@@ -1,6 +1,6 @@
 export default {
     name: 'post',
-    title: 'Post',
+    title: 'Blog Post',
     type: 'document',
     fields: [
         {
@@ -53,8 +53,22 @@ export default {
             name: 'body',
             title: 'Body',
             type: 'blockContent',
+        },
+        {
+            title: 'Is this a Software Update?',
+            name: 'update',
+            type: 'boolean'
         }
 
+    ],
+    orderings: [
+        {
+            title: 'Published Date',
+            name: 'publishedDateDesc',
+            by: [
+                {field: 'publishedAt', direction: 'desc'}
+            ]
+        },
     ],
 
     preview: {

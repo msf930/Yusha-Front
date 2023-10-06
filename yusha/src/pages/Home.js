@@ -5,6 +5,7 @@ import HomeHeaderForm from "../components/HomeHeaderForm.js";
 import PricingBrevoForm from "../components/PricingBrevoForm.js";
 import client from "../client";
 import SanityPost from "../components/SanityPost";
+import MultiLingualContent from "../components/MultilingualContent/multilingualContent";
 
 
 export default function Home() {
@@ -117,10 +118,8 @@ export default function Home() {
                         </div>
                         <div className="col-md-8 col-lg-6">
                             <div className="creator-middle mb-4">
-                                <h1 className="cs-text">We are all Creators</h1>
-                                <h4>Yusha is an animation tool dedicated to giving individuals the power to share their stories by
-                                    creating
-                                    animations.</h4>
+                                <h1 className="cs-text"><MultiLingualContent contentID="home_creator_title" /></h1>
+                                <h4><MultiLingualContent contentID="home_creator_body" /></h4>
                             </div>
                         </div>
                         <div className="col-md-2 col-lg-3">
@@ -138,13 +137,11 @@ export default function Home() {
                         </div>
                         <div className="col-lg-6">
                             <div className="hand-drawn-right">
-                                <h4>We aren't about AI art</h4>
-                                <h2>We only care about YOUR style</h2>
-                                <h4>Yusha hopes to help bring back older styles centered
-                                    around hand-drawn style by assisting with the
-                                    production of assets and scenes.</h4>
+                                <h4><MultiLingualContent contentID="home_section_1_sub" /></h4>
+                                <h2><MultiLingualContent contentID="home_section_1_title" /></h2>
+                                <h4><MultiLingualContent contentID="home_section_1_body" /></h4>
                                 <div className="goals">
-                                    <a href="about">Learn more about Yusha’s goals <span><i
+                                    <a href="about"><MultiLingualContent contentID="home_section_1_link" /> <span><i
                                         className="fa-sharp fa-solid fa-arrow-right"></i></span></a>
                                 </div>
 
@@ -163,11 +160,11 @@ export default function Home() {
                         {/* mobile responsive part end*/}
                         <div className="col-lg-6 order-lg-1 order-2">
                             <div className="hand-drawn-right">
-                                <h4>Letting anyone tell their story!</h4>
-                                <h2>AI Animation Software</h2>
-                                <h4>Yusha can help you draw your character in their scene, ready to be edited, so you can focus on editing the flow of your work and share your story.</h4>
+                                <h4><MultiLingualContent contentID="home_section_2_sub" /></h4>
+                                <h2><MultiLingualContent contentID="home_section_2_title" /></h2>
+                                <h4><MultiLingualContent contentID="home_section_2_body" /></h4>
                                 <div className="goals">
-                                    <a href="software">Learn more about Yusha software <span><i
+                                    <a href="software"><MultiLingualContent contentID="home_section_2_link" /> <span><i
                                         className="fa-sharp fa-solid fa-arrow-right"></i></span></a>
                                 </div>
                             </div>
@@ -188,13 +185,11 @@ export default function Home() {
                         </div>
                         <div className="col-lg-6">
                             <div className="hand-drawn-right">
-                                <h4>Help us, help you!</h4>
-                                <h2>Let’s Grow Together</h2>
-                                <h4>We are working hard towards the release of our beta. If
-                                    you have any comments or questions head over to our
-                                    Discord channel or other social media!</h4>
+                                <h4><MultiLingualContent contentID="home_section_3_sub" /></h4>
+                                <h2><MultiLingualContent contentID="home_section_3_title" /></h2>
+                                <h4><MultiLingualContent contentID="home_section_3_body" /></h4>
                                 <div className="grow-connect">
-                                    <a href="support">Connect with Yusha <span><i
+                                    <a href="support"><MultiLingualContent contentID="home_section_3_link" /> <span><i
                                         className="fa-sharp fa-solid fa-arrow-right"></i></span></a>
                                     <ul>
                                         <li>
@@ -227,10 +222,10 @@ export default function Home() {
                     <div className="row align-items-center p-md-5">
                         <div className="col-lg-6 order-lg-1 order-2">
                             <div className="Creativity-left">
-                                <h2>Creativity Without Limits!</h2>
-                                <h4>Watch how Yusha works.</h4>
-                                <h4>Here is a quick animation made using the Yusha software.</h4>
-                                <a href="https://www.youtube.com/@yusha4224">Watch video on YouTube <span><i
+                                <h2><MultiLingualContent contentID="home_video_title" /></h2>
+                                <h4><MultiLingualContent contentID="home_video_sub1" /></h4>
+                                <h4><MultiLingualContent contentID="home_video_sub2" /></h4>
+                                <a href="https://www.youtube.com/@yusha4224"><MultiLingualContent contentID="home_video_link" /> <span><i
                                     className="fa-sharp fa-solid fa-arrow-right"></i></span></a>
                             </div>
                         </div>
@@ -306,24 +301,24 @@ export default function Home() {
             </div>
             <section className="whatsIncluded">
                 <div className="whatsIncludedHeader">
-                    <h2>What's Included?</h2>
-                    <h4 className="m-10">Here is what you can expect when you download Yusha.</h4>
+                    <h2><MultiLingualContent contentID="home_included_title" /></h2>
+                    <h4 className="m-10"><MultiLingualContent contentID="home_included_sub" /></h4>
                 </div>
                 <div className="includedItemContainer">
                     <div className="includedItem">
-                        <img src="images/yushaFast.png"/>
-                        <h4 className="includedItemTitle">Animation tools for speed</h4>
-                        <p className="includedItemBody">With Yusha's tools, your animation process is faster and more efficient. Yusha assists with creating assets and frames needed in your scenes.</p>
+                        <img src="images/yushaFast.png" className="includedImg"/>
+                        <h4 className="includedItemTitle"><MultiLingualContent contentID="home_included_item1_title" /></h4>
+                        <p className="includedItemBody"><MultiLingualContent contentID="home_included_item1_body" /></p>
                     </div>
                     <div className="includedItem">
-                        <img src="images/yushaHearts.png"/>
-                        <h4 className="includedItemTitle">Familiar platform support</h4>
-                        <p className="includedItemBody">Yusha’s animation platform is powered by Godot, so users have access to the animations tools and layout with an immense amount of support.</p>
+                        <img src="images/yushaHearts.png" className="includedImg"/>
+                        <h4 className="includedItemTitle"><MultiLingualContent contentID="home_included_item2_title" /></h4>
+                        <p className="includedItemBody"><MultiLingualContent contentID="home_included_item2_body" /></p>
                     </div>
                     <div className="includedItem">
-                        <img src="images/yushaHelp.png"/>
-                        <h4 className="includedItemTitle">A helping hand from Yusha</h4>
-                        <p className="includedItemBody">The Yusha team is dedicated to continuously improving the product. Yusha is working to fix your issues and help debug with you.</p>
+                        <img src="images/yushaHelp.png" className="includedImg"/>
+                        <h4 className="includedItemTitle"><MultiLingualContent contentID="home_included_item3_title" /></h4>
+                        <p className="includedItemBody"><MultiLingualContent contentID="home_included_item3_body" /></p>
                     </div>
                 </div>
             </section>
@@ -332,11 +327,11 @@ export default function Home() {
                     <div className="container">
                         <div className="home-blog-section-title">
                             <div>
-                                <h2 className="blog-featured-title">Yusha Blog</h2>
-                                <h4 className="blog-featured-summary">The latest news and stories in the animation industry!</h4>
+                                <h2 className="blog-featured-title"><MultiLingualContent contentID="home_blog_title" /></h2>
                             </div>
-                            <div>
-                                <a href="blog" className="home-blog-viewMoreBtn">View all <span><i
+                            <div className="blog-sub-title">
+                                <h4 className="blog-featured-summary"><MultiLingualContent contentID="home_blog_sub" /></h4>
+                                <a href="blog" className="home-blog-viewMoreBtn"><MultiLingualContent contentID="home_blog_link" /> <span><i
                                     className="fa-sharp fa-solid fa-arrow-right"></i></span></a>
                             </div>
                         </div>

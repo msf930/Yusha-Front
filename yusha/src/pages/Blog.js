@@ -5,6 +5,7 @@ import {Link} from "react-router-dom";
 import BrevoForm from "../components/BrevoForm";
 import client from "../client";
 import BlockContent from "@sanity/block-content-to-react";
+import MultiLingualContent from "../components/MultilingualContent/multilingualContent";
 
 
 
@@ -116,8 +117,8 @@ export default function Blog(){
                 <div className="container ">
                     <div className="row banner-row justify-content-center align-items-center">
                         <div className="col-lg-12 text-center about-banner-con  banner_content">
-                            <h1>Yusha’s Blog</h1>
-                            <h4>The latest updates to the Yusha software and news from the industry</h4>
+                            <h1><MultiLingualContent contentID="blog_title" /></h1>
+                            <h4><MultiLingualContent contentID="blog_sub" /></h4>
                         </div>
                     </div>
                 </div>
@@ -173,8 +174,8 @@ export default function Blog(){
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-12 mb-4">
-                            <h2>Connect with Us!</h2>
-                            <h4>We’re here! Let’s talk.</h4>
+                            <h2><MultiLingualContent contentID="blog_connect_title" /></h2>
+                            <h4><MultiLingualContent contentID="blog_connect_sub" /></h4>
                         </div>
                         <div className="col-lg-8 m-auto">
                             <div className="connect-icon">

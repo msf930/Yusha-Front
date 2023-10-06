@@ -2,6 +2,7 @@ import Footer from "../components/Footer";
 import {HashLink} from "react-router-hash-link";
 import React from "react";
 import BrevoForm from "../components/BrevoForm";
+import MultiLingualContent from "../components/MultilingualContent/multilingualContent";
 
 export default function Support(){
     return(
@@ -17,10 +18,9 @@ export default function Support(){
                     <div className="row inner-hero-row align-items-center">
                         <div className="col-lg-6 order-lg-1 order-2">
                             <div className="inner-hero-content">
-                                <h1>We are here if you need help!</h1>
-                                <p>With everything new, questions are raised. Ask us any questions you may have. We want
-                                    to help!</p>
-                                <HashLink to="#contactForm" className="btn cs-btn">Contact Us</HashLink>
+                                <h1><MultiLingualContent contentID="support_hero_title" /></h1>
+                                <p><MultiLingualContent contentID="support_hero_sub" /></p>
+                                <HashLink to="#contactForm" className="btn cs-btn"><MultiLingualContent contentID="support_hero_btn" /></HashLink>
                             </div>
                         </div>
                         <div className="col-lg-6 order-lg-2 order-1">
@@ -35,16 +35,14 @@ export default function Support(){
         </header>
         <div className="discordContainer">
             <div className="discordText">
-                <h2 className='discordTitle'>Yusha on Discord!</h2>
-                <h4 className="discordBottomText">Join our commuinity to stay updated</h4>
+                <h2 className='discordTitle'><MultiLingualContent contentID="support_discord_title" /></h2>
+                <h4 className="discordBottomText"><MultiLingualContent contentID="support_discord_sub" /></h4>
             </div>
             <div className="discordWidget">
                 <iframe
                     src="https://e.widgetbot.io/channels/1061838271291859045/1061978127720525955"
                     allow="clipboard-write; fullscreen"
-                    height="700"
-                    width="90%"
-                    style={{borderRadius:8, height: "80vh",}}
+                    className="discord-Iframe"
                 >
                 </iframe>
             </div>
@@ -54,33 +52,34 @@ export default function Support(){
             <div className="find-container" >
                 <div >
                     <div >
-                        <h2>Can’t find what you’re looking for?</h2>
-                        <h4>Drop us a message! We are more than happy to assist you.</h4>
+                        <h2><MultiLingualContent contentID="support_form_title" /></h2>
+                        <h4><MultiLingualContent contentID="support_form_sub" /></h4>
                         <div className="find-form">
                             <form target="_blank" action="https://formsubmit.co/1d89877885f1f03e31955fce4be144db"
                                   method="POST">
                                 <div className="row">
                                     <div className="col-md-6">
-                                        <label htmlFor="">Enter your name.</label>
+                                        <label htmlFor=""><MultiLingualContent contentID="support_form_name" /></label>
                                         <input type="text" name="name" placeholder="First & Last Name"
                                                className="form-control"/>
-                                        <label htmlFor="">Enter your phone number.</label>
+                                        <label htmlFor=""><MultiLingualContent contentID="support_form_phone" /></label>
                                         <input type="text" name="phone" placeholder="Phone Number"
                                                className="form-control"/>
                                     </div>
                                     <div className="col-md-6">
-                                        <label htmlFor="">Enter your email.</label>
+                                        <label htmlFor=""><MultiLingualContent contentID="support_form_email" /></label>
                                         <input type="email" name="email" placeholder="janedoe@gmail.com"
                                                className="form-control"/>
-                                        <label htmlFor="">What’s the subject?</label>
+                                        <label htmlFor=""><MultiLingualContent contentID="support_form_subject" /></label>
                                         <input type="text" name="subject" placeholder="Ex. I want to help!"
                                                className="form-control"/>
                                     </div>
                                     <div className="col-md-12">
-                                        <label htmlFor="">Description</label>
+                                        <label htmlFor=""><MultiLingualContent contentID="support_form_description" /></label>
                                         <textarea name="desc" id="" cols="30" placeholder="Ex. I want to share my art."
                                                   rows="10" className="form-control"></textarea>
-                                        <input type="submit" className="submit cs-btn" value="Send Message"/>
+                                        {/*<input type="submit" className="submit cs-btn" value="Send Message"/>*/}
+                                        <button name="name" value="value" type="submit" className="submit cs-btn"><MultiLingualContent contentID="support_form_btn" /></button>
                                     </div>
                                 </div>
                             </form>
@@ -91,12 +90,12 @@ export default function Support(){
         </section>
         {/* banner end */}
         {/* connect with section starts */}
-        <section className="connect-us">
+        <section className="connect-us" id="contactForm">
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12 mb-4">
-                        <h2>Connect with Us!</h2>
-                        <h4>We’re here! Let’s talk.</h4>
+                        <h2><MultiLingualContent contentID="support_connect_title" /></h2>
+                        <h4><MultiLingualContent contentID="support_connect_sub" /></h4>
                     </div>
                     <div className="col-lg-12 ">
                         <div className="connect-icon">

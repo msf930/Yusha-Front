@@ -97,8 +97,9 @@ export default function PostPage() {
                     </div>
                 </div>
             </section>
-
-            <NewsletterForm />
+            <div id="signUp">
+                <NewsletterForm />
+            </div>
             <Footer />
 
         </div>

@@ -1,5 +1,6 @@
 import {Link,Outlet} from "react-router-dom";
 import { HashLink } from 'react-router-hash-link';
+import MultiLingualContent from "./MultilingualContent/multilingualContent";
 
 export default function Footer(){
     return(
@@ -19,7 +20,7 @@ export default function Footer(){
                                     <p>© 2023 Yusha Inc.</p>
                                 </li>
                                 <li>
-                                    <p>All Rights Reserved.</p>
+                                    <p><MultiLingualContent contentID="footer_rights" /></p>
                                 </li>
                                 <li>
                                     <ul className="footer-icon">
@@ -52,10 +53,10 @@ export default function Footer(){
                         <div className="footer-second">
                             <ul>
                                 <li className="list-header">
-                                    Software
+                                    <MultiLingualContent contentID="footer_software" />
                                 </li>
                                 <li>
-                                    <HashLink to="/software#softwareUpdate">Updates</HashLink>
+                                    <HashLink to="/software#softwareUpdate"><MultiLingualContent contentID="footer_updates" /></HashLink>
                                 </li>
                             </ul>
                         </div>
@@ -64,10 +65,10 @@ export default function Footer(){
                         <div className="footer-second">
                             <ul>
                                 <li className="list-header">
-                                    Company
+                                    <MultiLingualContent contentID="footer_company" />
                                 </li>
                                 <li>
-                                    <HashLink to="/about#top">About</HashLink>
+                                    <HashLink to="/about"><MultiLingualContent contentID="footer_about" /></HashLink>
                                 </li>
 
                             </ul>
@@ -77,13 +78,13 @@ export default function Footer(){
                         <div className="footer-second">
                             <ul>
                                 <li className="list-header">
-                                    Resources
+                                    <MultiLingualContent contentID="footer_resources" />
                                 </li>
                                 <li>
-                                    <HashLink to="/blog#top">Blog</HashLink>
+                                    <HashLink to="/blog"><MultiLingualContent contentID="footer_blog" /></HashLink>
                                 </li>
                                 <li>
-                                    <HashLink to="/support#top">Contact Us</HashLink>
+                                    <HashLink to="/support#contactForm"><MultiLingualContent contentID="footer_contact" /></HashLink>
                                 </li>
                             </ul>
                         </div>
