@@ -1,26 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.3bec3e9f.css",
-    "main.js": "/static/js/main.c1e5cc41.js",
+    "main.css": "/static/css/main.058fd63c.css",
+    "main.js": "/static/js/main.ccdde9c9.js",
+    "static/js/726.5be05742.chunk.js": "/static/js/726.5be05742.chunk.js",
     "static/js/787.62720f0b.chunk.js": "/static/js/787.62720f0b.chunk.js",
     "static/media/BlogHeader2.png": "/static/media/BlogHeader2.3a5a86e3a62c115d06fc.png",
-    "static/media/about-banner.png": "/static/media/about-banner.a890bd675c4c3630f20a.png",
     "static/media/download-page-price.png": "/static/media/download-page-price.8938f3adb613c6297477.png",
     "static/media/blog-featured-bg.png": "/static/media/blog-featured-bg.1901f3eeab172b61e586.png",
-    "static/media/top-wave.png": "/static/media/top-wave.2233b0d007463a87ee1f.png",
     "static/media/ZabalDEMO-ExtraBold.otf": "/static/media/ZabalDEMO-ExtraBold.aa4388552391ef008536.otf",
     "static/media/ZabalDEMO-Bold.otf": "/static/media/ZabalDEMO-Bold.2025679e6ad45cfd35ca.otf",
     "static/media/ZabalDEMO-Regular.otf": "/static/media/ZabalDEMO-Regular.a53b58d02a25d36874dc.otf",
     "static/media/ZabalDEMO-Medium.otf": "/static/media/ZabalDEMO-Medium.bb5314ba241ff658ff33.otf",
-    "static/media/bottom-wave.png": "/static/media/bottom-wave.106553911dd5d05b4a57.png",
     "index.html": "/index.html",
     "static/media/logo.svg": "/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
-    "main.3bec3e9f.css.map": "/static/css/main.3bec3e9f.css.map",
-    "main.c1e5cc41.js.map": "/static/js/main.c1e5cc41.js.map",
+    "main.058fd63c.css.map": "/static/css/main.058fd63c.css.map",
+    "main.ccdde9c9.js.map": "/static/js/main.ccdde9c9.js.map",
+    "726.5be05742.chunk.js.map": "/static/js/726.5be05742.chunk.js.map",
     "787.62720f0b.chunk.js.map": "/static/js/787.62720f0b.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.3bec3e9f.css",
-    "static/js/main.c1e5cc41.js"
+    "static/css/main.058fd63c.css",
+    "static/js/main.ccdde9c9.js"
   ]
 }
