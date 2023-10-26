@@ -114,6 +114,7 @@ li {
     padding: 20px 24px;
     transition: .3s;
 }
+
 @media (max-width: 900px)  {
     .cs-btn-about{
         background: #FFFFFF !important;
@@ -271,6 +272,12 @@ position: relative;
     animation: fadeInAnimation ease 1s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
+}
+.homeHeaderAppleLogo{
+    width: 22px;
+    height: auto;
+    margin-bottom: 5px;
+    margin-right: 4px;
 }
 @keyframes fadeInAnimation {
     0% {
@@ -460,6 +467,36 @@ position: relative;
     text-align: center;
     color: var(--cs-titleblack);
 }
+.download{
+    /*background-color: #f6e6dd;*/
+    background: linear-gradient(180deg,
+    #f6e6dd 0%,
+    #ffffff 100%
+    );
+    padding-top: 80px;
+}
+.downloadYushaImages{
+    display: flex;
+    justify-content: space-between;
+    margin-top: -100px;
+}
+
+@media (max-width: 800px){
+    .downloadYushaImages{
+    display: none;
+    justify-content: space-between;
+    margin-top: -100px;
+}
+    .download{
+        /*background-color: #f6e6dd;*/
+        background: linear-gradient(180deg,
+        #f6e6dd 0%,
+        #ffffff 100%
+        );
+        padding-top: 80px;
+        padding-bottom: 100px;
+    }}
+
 .beta{
     width: 400px;
     margin: auto;

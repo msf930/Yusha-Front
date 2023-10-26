@@ -1,11 +1,12 @@
 import Footer from "../components/Footer";
-import {useEffect, useState} from "react";
+import React, {useEffect, useState} from "react";
 import BrevoForm from "../components/BrevoForm.js";
-import HomeHeaderForm from "../components/HomeHeaderForm.js";
+import HomeHeaderFormDownload from "../components/HomeHeaderFormDownload.js";
 import PricingBrevoForm from "../components/PricingBrevoForm.js";
 import client from "../client";
 import SanityPost from "../components/SanityPost";
 import MultiLingualContent from "../components/MultilingualContent/multilingualContent";
+import AWS from "aws-sdk";
 
 
 export default function Home() {
@@ -79,6 +80,51 @@ export default function Home() {
     //         featTagArr.push(featTag);
     //     })
     // }
+    const region = "us-west-2";
+    const accessKeyId = "AKIA4YOOEBDDQESOL3XZ";
+    const secretAccessKey = "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";
+
+    AWS.config.update({
+        region:region,
+        credentials:new AWS.Credentials(accessKeyId,secretAccessKey)
+    });
+
+    const s3 = new AWS.S3();
+
+    //sets download counter
+    const [downloads, setDownloads] = useState([])
+    useEffect(() => {
+        const fetchDownlodads = async () => {
+            const downloadResponse = await client.fetch(
+                `*[_type == "downloads"]{
+        downloads
+      }`
+            )
+            const downloadData = await downloadResponse;
+            setDownloads(downloadData);
+        }
+        fetchDownlodads();
+    }, [])
+
+    const downloadArr = downloads;
+    const countArr = [];
+
+    downloadArr.forEach((item) => {
+        countArr.push(item.downloads);
+    });
+    const finalCount = countArr[0];
+    const incrementedCount = finalCount + 1;
+    console.log(finalCount);
+
+
+    //updates new download count
+    const updateDownloads = async () => {
+        const countUpdate = await client
+            .patch('ed4153f2-9f09-4e62-bfc4-0d33d5589272')
+            .set({downloads: incrementedCount})
+            .commit()
+
+    }
 
     return(
         <div className="gradientBG">
@@ -104,7 +150,7 @@ export default function Home() {
             {/*    </div>*/}
             {/*</div>*/}
             <div>
-                <HomeHeaderForm />
+                <HomeHeaderFormDownload />
             </div>
             {/* banner end */}
             {/* all creator section starts */}
@@ -299,6 +345,48 @@ export default function Home() {
             <div id="signUp">
                 <PricingBrevoForm/>
             </div>
+            <section className="download">
+                <div className="container">
+                    <div className="text-center">
+                        <div className="row align-items-center">
+                            <h2><MultiLingualContent contentID="home_download_title" /></h2>
+                        </div>
+                        <div>
+                            <a className="btn cs-btn-software"
+                               href={s3.getSignedUrl("getObject",{
+                                   Bucket: "yushatestzip",
+                                   Key: "Yusha.zip",
+                               })}
+                               onClick={updateDownloads}
+                               style={{
+                                   color: "#FFFFFF",
+                                   textDecoration: "none",
+                                   paddingTop: 12,
+                                   paddingBottom: 12,
+                                   marginTop: 12,
+
+                               }}
+                            > <img src={"images/AppleLogo.png"} className="homeHeaderAppleLogo"/> <MultiLingualContent contentID="home_brevo_submit" />
+
+                            </a>
+
+                        </div>
+                        <div>
+                            <p className="mt-4">
+                                <MultiLingualContent contentID="home_brevo_info" />
+                            </p>
+                        </div>
+                    </div>
+                    <div className="downloadYushaImages">
+                        <div className="downloadImgLeft">
+                            <img src="images/YushaAdmire.png"/>
+                        </div>
+                        <div className="downloadImgRight">
+                            <img src="images/yushaSpecial.png"/>
+                        </div>
+                    </div>
+                </div>
+            </section>
             <section className="whatsIncluded">
                 <div className="whatsIncludedHeader">
                     <h2><MultiLingualContent contentID="home_included_title" /></h2>

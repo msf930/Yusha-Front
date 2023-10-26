@@ -23,10 +23,11 @@ export const translations = {
         hello: "hello",
         home_brevo_title: "Animate your drawings faster!",
         home_brevo_sub1:"Yusha is the AI animation software that allows you to create more with less time needed.",
-        home_brevo_sub2:"Our Beta is almost here!",
+        home_brevo_sub2:"Our Beta is here!",
         home_brevo_CTA:"Sign up to receive news of our launch straight to your inbox.",
         home_brevo_placeholder: "janeDoe@email.com",
-        home_brevo_submit: "Sign Up",
+        home_brevo_submit: "Download Yusha",
+        home_brevo_info: "macOS | Apple Silicon | 1.5 GB | Oct 2023",
         home_brevo_success: "You are Subscribed!",
 
         //HOME CREATORS MAIN
@@ -64,6 +65,9 @@ export const translations = {
         home_pricing_placeholder:"janeDoe@email.com",
         home_pricing_submit:"Sign Up",
         home_pricing_success:"You are Subscribed!",
+
+        //DOWNLOAD
+        home_download_title: "Bring your character to life",
 
         //HOME WHATS INCLUDED
         home_included_title:"What's Included?",
@@ -257,10 +261,11 @@ export const translations = {
         hello: "안녕하세요",
         home_brevo_title: "그림에 더 빠르게 애니메이션을 적용해 보세요!",
         home_brevo_sub1:"Yusha는 더 적은 시간에 더 많은 것을 만들 수 있는 AI 애니메이션 소프트웨어입니다.",
-        home_brevo_sub2:"베타가 거의 완료되었습니다!",
+        home_brevo_sub2:"베타가 출시되었습니다!",
         home_brevo_CTA:"등록하시면 출시 소식을 받은 편지함으로 바로 받아보실 수 있습니다.",
         home_brevo_placeholder: "yusha@email.com",
-        home_brevo_submit: "가입하기",
+        home_brevo_submit: "유샤 다운로드",
+        home_brevo_info: "맥 운영체제 | 애플실리콘 | 1.5 기가바이트 | 십월 2023" ,
         home_brevo_success: "당신은 구독하고 있습니다!",
 
         //HOME CREATORS MAIN
@@ -298,6 +303,9 @@ export const translations = {
         home_pricing_placeholder:"yusha@email.com",
         home_pricing_submit:"가입하기",
         home_pricing_success:"당신은 구독하고 있습니다!",
+
+        //DOWNLOAD
+        home_download_title: "캐릭터에 생기를 불어넣으세요",
 
         //HOME WHATS INCLUDED
         home_included_title:"무엇이 포함되어 있나요?",

@@ -1,6 +1,8 @@
-import {useState} from "react";
+import React, {useEffect, useState} from "react";
 import Swal from 'sweetalert2'
 import MultiLingualContent from "./MultilingualContent/multilingualContent";
+import AWS from "aws-sdk";
+import client from "../client";
 
 export default function HomeHeaderForm(){
 
@@ -44,6 +46,54 @@ const formHandler = (event) => {
         title: 'You are Subscribed!'
     })
 }
+
+
+    const region = "us-west-2";
+    const accessKeyId = "AKIA4YOOEBDDQESOL3XZ";
+    const secretAccessKey = "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";
+
+    AWS.config.update({
+        region:region,
+        credentials:new AWS.Credentials(accessKeyId,secretAccessKey)
+    });
+
+    const s3 = new AWS.S3();
+
+    //sets download counter
+    const [downloads, setDownloads] = useState([])
+    useEffect(() => {
+        const fetchDownlodads = async () => {
+            const downloadResponse = await client.fetch(
+                `*[_type == "downloads"]{
+        downloads
+      }`
+            )
+            const downloadData = await downloadResponse;
+            setDownloads(downloadData);
+        }
+        fetchDownlodads();
+    }, [])
+
+    const downloadArr = downloads;
+    const countArr = [];
+
+    downloadArr.forEach((item) => {
+        countArr.push(item.downloads);
+    });
+    const finalCount = countArr[0];
+    const incrementedCount = finalCount + 1;
+    console.log(finalCount);
+
+
+    //updates new download count
+    const updateDownloads = async () => {
+        const countUpdate = await client
+            .patch('ed4153f2-9f09-4e62-bfc4-0d33d5589272')
+            .set({downloads: incrementedCount})
+            .commit()
+
+    }
+
 
     return(
         <div  className="homeBrevoHeader">
@@ -105,7 +155,6 @@ const formHandler = (event) => {
                     direction: "ltr"
                 }}>
                     <form id="sib-form" method="POST"
-                          // action="https://feb7ebfd.sibforms.com/serve/MUIFAFt_9hZocUp0VDg8kQXJmGQo7lmfoCg79HwEwnnTRABGEDS8anTCFpnPZUxDMBfU6sDpLDubrRHmoHtsjAL_cysSemu2LyTe0Q6WP1Zh5se0XuwXidVPo6hEXpQ_heNaOvTTabkHm9CfZH1bz2zNp8krcT3aMIy56OVycSdpvpQggk08S7foyG2fnDQCEeUp9TtPpone8N04"
                           data-type="subscription"
                           style={{zIndex: "3", position: "relative"}}
                            onSubmit={(event) => formHandler(event)}
@@ -180,7 +229,7 @@ const formHandler = (event) => {
                                          justifyContent: "center",
                                          marginTop: 24,
                                      }}>
-                                    <p><MultiLingualContent contentID="home_brevo_CTA" /></p>
+
                                 </div>
                             </div>
                         </div>
@@ -194,61 +243,49 @@ const formHandler = (event) => {
                                              display: "flex",
                                              flexDirection: "row",
                                              flexWrap: "wrap",
-                                             marginTop: 24,
+                                             marginTop: 0,
                                     }}>
-                                        <div className="entry__field"
-                                        style={{
-                                            width: "20em",
-                                            borderRadius: 4,
-                                            borderStyle: "none",
-                                        }}>
-                                            <input className="input "
-                                                   style={{
-                                                       fontSize: 20,
-                                                       textAlign: "left",
-                                                       fontWeight: 300,
-                                                       fontFamily: "Zabal",
-                                                       color: "#000000",
-                                                       display: "flex",
-                                                       flexDirection: "column",
-                                                       justifyContent: "center",
-                                                       borderRadius: 4,
-                                                       borderWidth: 1,
-                                                       borderColor: "#000000",
-                                                       borderStyle: "solid",
-                                                       width: "20em",
+                                        <div>
+                                            <a className="btn cs-btn-software"
+                                               href={s3.getSignedUrl("getObject",{
+                                                   Bucket: "yushatestzip",
+                                                   Key: "Yusha.zip",
+                                               })}
+                                               onClick={updateDownloads}
+                                               style={{
+                                                   color: "#FFFFFF",
+                                                   textDecoration: "none",
+                                                   paddingTop: 12,
+                                                   paddingBottom: 12,
 
-                                                   }}
-                                                   type="text"
-                                                   id="EMAIL"
-                                                   name="EMAIL"
-                                                   autoComplete="off" placeholder="janeDoe@email.com"
-                                                   data-required="true"
-                                                   required
-                                                   onChange={(event) => setEmail(event.target.value)}/>
+                                               }}
+                                            > <img src={"images/AppleLogo.png"} className="homeHeaderAppleLogo"/> <MultiLingualContent contentID="home_brevo_submit" />
+
+                                            </a>
                                         </div>
-                                        <div style={{padding: "8px 0"}}>
-                                            <div className="sib-form-block" style={{textAlign: "left"}}>
-                                                <button className="sib-form-block__button sib-form-block__button-with-loader" style={{
-                                                    fontSize: 16,
-                                                    textAlign: "left",
-                                                    fontWeight: "700",
-                                                    fontFamily: "Zabal",
-                                                    color: "#FFFFFF",
-                                                    backgroundColor: "#EE6611",
-                                                    borderRadius: 3,
-                                                    borderWidth: 0
-                                                }}  form="sib-form" type="submit">
-                                                    <svg className="icon clickable__icon progress-indicator__icon sib-hide-loader-icon"
-                                                         viewBox="0 0 512 512">
-                                                        <path
-                                                            d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z"
-                                                        />
-                                                    </svg>
-                                                    <MultiLingualContent contentID="home_brevo_submit" />
-                                                </button>
-                                            </div>
-                                        </div>
+                                        {/*<div style={{padding: "8px 0"}}>*/}
+                                        {/*    <div className="sib-form-block" style={{textAlign: "left"}}>*/}
+                                        {/*        <button className="sib-form-block__button sib-form-block__button-with-loader" style={{*/}
+                                        {/*            fontSize: 16,*/}
+                                        {/*            textAlign: "left",*/}
+                                        {/*            fontWeight: "700",*/}
+                                        {/*            fontFamily: "Zabal",*/}
+                                        {/*            color: "#FFFFFF",*/}
+                                        {/*            backgroundColor: "#EE6611",*/}
+                                        {/*            borderRadius: 8,*/}
+                                        {/*            borderWidth: 0*/}
+                                        {/*        }}  form="sib-form" type="submit">*/}
+                                        {/*            <svg className="icon clickable__icon progress-indicator__icon sib-hide-loader-icon"*/}
+                                        {/*                 viewBox="0 0 512 512">*/}
+                                        {/*                <path*/}
+                                        {/*                    d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z"*/}
+                                        {/*                />*/}
+                                        {/*            </svg>*/}
+                                        {/*            <img src={"images/AppleLogo.png"} className="homeHeaderAppleLogo"/>*/}
+                                        {/*            <MultiLingualContent contentID="home_brevo_submit" />*/}
+                                        {/*        </button>*/}
+                                        {/*    </div>*/}
+                                        {/*</div>*/}
                                     </div>
                                     <label className="entry__error entry__error--primary" style={{
                                         fontSize: 16,
@@ -263,6 +300,23 @@ const formHandler = (event) => {
                                 </div>
                             </div>
                         </div>
+                        <div className="sib-form-block" style={{
+                            fontSize: 30,
+                            textAlign: "center",
+                            fontWeight: 700,
+                            fontFamily: "Zabal",
+                            color: "#000",
+                            backgroundColor: "transparent",
+                            display: "flex",
+                            justifyContent: "center",
+                            marginTop: 24,
+                            zIndex: "3",
+                        }}>
+                            <p>
+                                <MultiLingualContent contentID="home_brevo_info" />
+                            </p>
+                        </div>
+
                         {/*<div style={{padding: "8px 0"}}>*/}
                         {/*    <div className="sib-optin sib-form-block">*/}
                         {/*        <div className="form__entry entry_mcq">*/}
